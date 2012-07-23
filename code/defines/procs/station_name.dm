@@ -2,14 +2,14 @@
 	if (station_name)
 		return station_name
 
-	var/name = "NSS Exodus"
+	var/name = "FaceBase 13"
 
 	station_name = name
 
 	if (config && config.server_name)
 		world.name = "[config.server_name]: [name]"
 	else
-		world.name = "Baystation12"
+		world.name = "FaceBase 13"
 
 	return name
 
