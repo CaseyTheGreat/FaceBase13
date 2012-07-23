@@ -22,6 +22,12 @@
 	item_state = "rig0-white"
 	color = "white"
 
+/obj/item/clothing/head/helmet/space/rig/antique
+	name = "antique hardsuit helmet"
+	icon_state = "rig0-antique"
+	item_state = "rig0-antique"
+	color = "white"
+
 /obj/item/clothing/head/helmet/space/rig/security
 	name = "security hardsuit helmet"
 	icon_state = "rig0-security"
@@ -45,6 +51,11 @@
 /obj/item/clothing/suit/space/rig/elite
 	icon_state = "rig-white"
 	name = "advanced hardsuit"
+	protective_temperature = 10000
+
+/obj/item/clothing/suit/space/rig/antique
+	icon_state = "rig-antique"
+	name = "antique hardsuit"
 	protective_temperature = 10000
 
 /obj/item/clothing/suit/space/rig/security

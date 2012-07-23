@@ -1,1 +1,2 @@
 Zone | The Security Office | 21.8366, 82.1472, 0, 0 | 293.15 | 45000
+Zone | Robotics Maintenance | 21.8366, 82.1472, 0, 0 | 293.15 | 85000

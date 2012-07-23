@@ -1,9 +1,9 @@
 /obj/effect/sign/barsign
 	icon = 'barsigns.dmi'
-	icon_state = "empty"
+	icon_state = "firerain"
 	anchored = 1
 	New()
-		ChangeSign(pick("pinkflamingo", "magmasea", "limbo", "rustyaxe", "armokbar", "brokendrum", "meadbay", "thedamnwall", "thecavern", "cindikate", "theorchard", "thesaucyclown", "theclownshead"))
+		ChangeSign(pick("firerain"))
 		return
 	proc/ChangeSign(var/Text)
 		src.icon_state = "[Text]"
