@@ -264,16 +264,16 @@
 	return
 
 /mob/living/carbon/human/movement_delay()
-	var/tally = 0
+	var/tally = -2
 	var/mob/M = pulling
 
-	if(reagents.has_reagent("hyperzine")) return -1
+	if(reagents.has_reagent("hyperzine")) return -3
 
-	if(reagents.has_reagent("nuka_cola")) return -1
+	if(reagents.has_reagent("nuka_cola")) return -3
 
-	if(analgesic) return -1
+	if(analgesic) return -3
 
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
+	if (istype(loc, /turf/space)) return -3 // It's hard to be slowed down in space by... anything
 
 	var/health_deficiency = traumatic_shock
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
@@ -308,14 +308,14 @@
 
 	if(shock_stage >= 10) tally += 3
 
-	if(tally < 0)
-		tally = 0
+	if(tally < -2)
+		tally = -2
 
 	if(istype(M) && M.lying) //Pulling lying down people is slower
 		tally += 3
 
 	if(mRun in mutations)
-		tally = 0
+		tally = -2
 
 	return tally
 
