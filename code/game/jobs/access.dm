@@ -401,9 +401,9 @@
 			return "Code Silver"
 		if(ACCESS_CENT_CAPTAIN)
 			return "Code Gold"
-
+//gave clown a proper rank
 /proc/get_all_jobs()
-	return list("Assistant", "Captain", "Head of Personnel", "Bartender", "Chef", "Botanist", "Quartermaster", "Cargo Technician",
+	return list("Assistant", "Captain", "Head of Personnel", "Bartender", "Chef", "Botanist", "Mime", "Clown", "Quartermaster", "Cargo Technician",
 				"Shaft Miner", "Janitor", "Librarian", "Lawyer", "Chaplain", "Chief Engineer", "Station Engineer",
 				"Atmospheric Technician", "Roboticist", "Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist",
 				"Research Director", "Scientist", "Head of Security", "Warden", "Detective", "Security Officer")

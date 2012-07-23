@@ -217,7 +217,7 @@
 		block = CLUMSYBLOCK
 
 /obj/item/weapon/dnainjector/anticlumsy
-	name = "DNA-Injector (Anti-Clumy)"
+	name = "DNA-Injector (Anti-Clumsy)"
 	desc = "Apply this for Security Clown."
 	dnatype = "se"
 	dna = "708"
