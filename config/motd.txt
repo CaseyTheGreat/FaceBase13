@@ -1,9 +1,19 @@
-<h1>Welcome to Baystation 12!</h1>
+<h1>Welcome to FaceBase 13!</h1>
 
--<i>This server is running <a href="http://baystation12.net/">Baystation 12's</a> modification of the <a href="http://nanotrasen.com/">/tg/station13</a> SS13 code.</i>
+-<i>This server is running <a href="http://baystation12.net/">Facepunch's</a> modification of the <a href="http://nanotrasen.com/">/tg/station13</a> SS13 code.</i>
 <br><br>
-<strong>Bugtracker:</strong> <a href="https://github.com/Baystation12/Baystation12/issues">https://github.com/Baystation12/Baystation12/issues</a>
-<br>
-<strong>Rules and roleplaying tips:</strong> <a href="http://baystation12.net/wiki/index.php/Rules">http://baystation12.net/wiki/index.php/Rules</a> or the Rules command.
+<strong>Bugtracker:</strong> <a href="https://github.com/CaseyTheGreat/FaceBase13/issues">https://github.com/CaseyTheGreat/FaceBase13/issues</a>
 <br><br>
-This is a roleplaying server, so don't forget to remain in character while playing. Make sure to read and abide by the rules and if you have any questions, feel free to adminhelp! Remember that even when there are no admins on, adminhelps are being sent to IRC and it is possible for an administrator to see it and respond.
+This is a <B>light</B> roleplaying server. You are encouraged to have some sort of character but the only real golden rules are <B>NO IC IN OOC</B> and <B>NO OOC IN IC</B>. This basically means do not talk about events in the round in OOC chat, and do not talk about events outside of the round (i.e. server rules or what you had for dinner) in the IC chat. 
+
+<h2><FONT COLOR="#CCCC00">THE TEN COMMANDMENTS OF FACEBASE 13</FONT><BR></h2>
+<FONT COLOR="#FF0000">1. Thou shalt not hold grudges between rounds.</FONT><BR>
+<FONT COLOR="#FF0000">2. Thou shalt not kill as a non-antagonist, except in self defense.</FONT><BR>
+<FONT COLOR="#FF0000">3. Thou shalt not griff, and thou shalt report griffers to the admins.</FONT><BR>
+<FONT COLOR="#FF0000">4. Thou shalt not covet thy neighbor's belongings. Do not steal.</FONT><BR>
+<FONT COLOR="#FF0000">5. Honor thy admins and captains, comdoms though they may be.</FONT><BR>
+<FONT COLOR="#FF0000">6. Thou shalt not speak of OOC matters in IC.</FONT><BR>
+<FONT COLOR="#FF0000">7. Thou shalt not speak of IC matters in OOC.</FONT><BR>
+<FONT COLOR="#FF0000">8. Thou shalt not bitch about the prievous round in OOC. The admins will handle it.</FONT><BR>
+<FONT COLOR="#FF0000">9. Thou shalt not intentionally stir up shit in OOC. The admins will handle it.</FONT><BR>
+<FONT COLOR="#FF0000">10. Thou shalt have fun. Remember, it's just a game. There will always be another round.</FONT><BR>
