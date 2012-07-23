@@ -14,7 +14,7 @@
 		dat += "<I>The number after the spell name is the cooldown time.</I><BR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=1'>Magic Missile</A> (10)<BR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=2'>Fireball</A> (20)<BR>"
-//		dat += "<A href='byond://?src=\ref[src];spell_choice=3'>Disintegrate</A> (60)<BR>"
+		dat += "<A href='byond://?src=\ref[src];spell_choice=3'>Disintegrate</A> (60)<BR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=4'>Disable Technology</A> (60)<BR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=5'>Smoke</A> (10)<BR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=6'>Blind</A> (30)<BR>"
@@ -39,6 +39,9 @@
 //		if(op)
 //			dat += "<A href='byond://?src=\ref[src];spell_choice=17'>Veil Render</A><BR>"
 		dat += "<HR>"
+//		dat += "<B>Unforgivable Curses:</B><BR>"
+//		dat += "Extremely dangerous magical no-no words that your headmaster taught you but warned you only to use in the direst of circumstances.<BR>"
+//		dat += "Each costs twice as much as a normal spell and <B> you may only take one </B><BR>"
 		dat += "<A href='byond://?src=\ref[src];spell_choice=18'>Re-memorize Spells</A><BR>"
 	user << browse(dat, "window=radio")
 	onclose(user, "radio")
@@ -67,10 +70,10 @@
 							usr.verbs += /client/proc/fireball
 							usr.mind.special_verbs += /client/proc/fireball
 							src.temp = "This spell fires a fireball at a target and does not require wizard garb. Be careful not to fire it at people that are standing next to you."
-//						if ("3")
-//							usr.verbs += /mob/proc/kill
-//							usr.mind.special_verbs += /mob/proc/kill
-//							src.temp = "This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown."
+						if ("3")
+							usr.verbs += /mob/proc/kill
+							usr.mind.special_verbs += /mob/proc/kill
+							src.temp = "This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown."
 						if ("4")
 							usr.verbs += /mob/proc/tech
 							usr.mind.special_verbs += /mob/proc/tech
@@ -145,10 +148,10 @@
 								//feedback_add_details("wizard_spell_learned","FB") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
 								usr.spell_list += new /obj/effect/proc_holder/spell/targeted/projectile/fireball(usr)
 								src.temp = "This spell fires a fireball at a target and does not require wizard garb. Be careful not to fire it at people that are standing next to you."
-//							if ("3")
-//								feedback_add_details("wizard_spell_learned","DG") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
-//								usr.spell_list += new /obj/effect/proc_holder/spell/targeted/inflict_handler/disintegrate(usr)
-//								src.temp = "This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown."
+							if ("3")
+								//feedback_add_details("wizard_spell_learned","DG") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
+								usr.spell_list += new /obj/effect/proc_holder/spell/targeted/inflict_handler/disintegrate(usr)
+								src.temp = "This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown."
 							if ("4")
 								//feedback_add_details("wizard_spell_learned","DT") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
 								usr.spell_list += new /obj/effect/proc_holder/spell/targeted/emplosion/disable_tech(usr)
@@ -247,7 +250,7 @@
 			dat += "<I>Each item costs 1 telecrystal. The number afterwards is the cooldown time.</I><BR>"
 			dat += "<A href='byond://?src=\ref[src];spell_magicmissile=1'>Magic Missile</A> (10)<BR>"
 			dat += "<A href='byond://?src=\ref[src];spell_fireball=1'>Fireball</A> (10)<BR>"
-//			dat += "<A href='byond://?src=\ref[src];spell_disintegrate=1'>Disintegrate</A> (60)<BR>"
+			dat += "<A href='byond://?src=\ref[src];spell_disintegrate=1'>Disintegrate</A> (60)<BR>"
 			dat += "<A href='byond://?src=\ref[src];spell_emp=1'>Disable Technology</A> (60)<BR>"
 			dat += "<A href='byond://?src=\ref[src];spell_smoke=1'>Smoke</A> (10)<BR>"
 			dat += "<A href='byond://?src=\ref[src];spell_blind=1'>Blind</A> (30)<BR>"
@@ -288,12 +291,12 @@
 				usr.verbs += /client/proc/fireball
 				usr.mind.special_verbs += /client/proc/fireball
 				src.temp = "This spell fires a fireball at a target and does not require wizard garb. Be careful not to fire it at people that are standing next to you."
-//		else if (href_list["spell_disintegrate"])
-//			if (src.uses >= 1)
-//				src.uses -= 1
-//				usr.verbs += /mob/proc/kill
-//				usr.mind.special_verbs += /mob/proc/kill
-//				src.temp = "This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown."
+		else if (href_list["spell_disintegrate"])
+			if (src.uses >= 1)
+				src.uses -= 1
+				usr.verbs += /mob/proc/kill
+				usr.mind.special_verbs += /mob/proc/kill
+				src.temp = "This spell instantly kills somebody adjacent to you with the vilest of magick. It has a long cooldown."
 		else if (href_list["spell_emp"])
 			if (src.uses >= 1)
 				src.uses -= 1

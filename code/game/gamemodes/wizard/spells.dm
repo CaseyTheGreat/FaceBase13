@@ -229,7 +229,7 @@
 
 //KILL
 
-/*
+
 /mob/proc/kill(mob/living/M as mob in oview(1))
 	set category = "Spells"
 	set name = "Disintegrate"
@@ -249,8 +249,8 @@
 	s.set_up(4, 1, M)
 	s.start()
 
-	M.dust()
-*/
+	M.gib()
+
 
 //DISABLE TECH
 
