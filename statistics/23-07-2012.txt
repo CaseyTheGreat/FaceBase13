@@ -3,3 +3,5 @@ Explosion | The Central Primary Hallway | -1, -1, 2, 2
 Death | The Central Primary Hallway | 0, 0, 0, 0 | [04:34:19]<font color='orange'> Attacked by Yoda the Destroyer as (Damian James) (caseythegreat) with kitchen knife (INTENT: HELP) (DAMTYE: BRUTE)</font>
 Zone | Mine | 21.8366, 82.1472, 0, 0 | 2.7 | 22500
 Zone | The Derelict Secondary Hallway | 0.01, 0.01, 0, 0 | 2.7 | 12500
+Zone | The Toxins Test Area | 0.01, 0.01, 0, 0 | 2.7 | 12500
+Zone | The Cargo Bay | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
