@@ -795,6 +795,7 @@ proc/process_ghost_teleport_locs()
 /area/crew_quarters/bar
 	name = "\improper Bar"
 	icon_state = "bar"
+	music = "music/barmusic.ogg"
 
 /area/crew_quarters/theatre
 	name = "\improper Theatre"

@@ -6,6 +6,7 @@
 	var/now_pushing = null
 	var/cameraFollow = null
 	var/age = null
+	var/be_music
 
 
 // lists used to cache overlays
