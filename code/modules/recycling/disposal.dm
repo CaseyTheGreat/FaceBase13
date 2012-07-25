@@ -157,7 +157,7 @@
 					V.show_message("[usr] starts climbing into the [src].", 3)
 				if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 					if(target.anchored) return
-					V.show_message("[usr] starts stuffing [target.name] into the [src]", 3)
+					V.show_message("[usr] starts stuffing [target.name] into the [src].", 3)
 			if(!do_after(usr, 20))
 				return
 			if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in										// must be awake, not stunned or whatever
@@ -318,7 +318,7 @@
 			return
 
 		if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-			usr << "\red The disposal units power is disabled."
+			usr << "\red The [src]s power is disabled."
 			return
 		..()
 		src.add_fingerprint(usr)
@@ -517,6 +517,96 @@
 			return 0
 		else
 			return ..()
+
+
+
+
+// Pneumatic system for delivering food. Needs a few tweaks to make it different from normal disposals
+/obj/machinery/disposal/pneumatic
+	name = "pneumatic delivery chute"
+	desc = "A pneumatic delivery unit."
+	icon = 'disposal.dmi'
+	icon_state = "disposal"
+
+	proc/interact(mob/user, var/ai=0)
+
+		src.add_fingerprint(user)
+		if(stat & BROKEN)
+			user.machine = null
+			return
+
+		var/dat = "<head><title>Pneumatic Delivery Unit</title></head><body><TT><B>Pneumatic Delivery Unit</B><HR>"
+
+		if(!ai)  // AI can't pull flush handle
+			if(flush)
+				dat += "PDU handle: <A href='?src=\ref[src];handle=0'>Disengage</A> <B>Engaged</B>"
+			else
+				dat += "PDU handle: <B>Disengaged</B> <A href='?src=\ref[src];handle=1'>Engage</A>"
+
+			dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
+
+		if(mode <= 0)
+			dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+		else if(mode == 1)
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+		else
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
+
+		var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
+
+		dat += "Pressure: [round(per, 1)]%<BR></body>"
+
+
+		user.machine = src
+		user << browse(dat, "window=pdu;size=360x170")
+		onclose(user, "disposal")
+
+	// handle machine interaction
+
+	Topic(href, href_list)
+		if(usr.loc == src)
+			usr << "\red You cannot reach the controls from inside."
+			return
+
+		if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
+			usr << "\red The [src]s power is disabled."
+			return
+		..()
+		src.add_fingerprint(usr)
+		if(stat & BROKEN)
+			return
+		if(usr.stat || usr.restrained() || src.flushing)
+			return
+
+		if (in_range(src, usr) && istype(src.loc, /turf))
+			usr.machine = src
+
+			if(href_list["close"])
+				usr.machine = null
+				usr << browse(null, "window=pdu")
+				return
+
+			if(href_list["pump"])
+				if(text2num(href_list["pump"]))
+					mode = 1
+				else
+					mode = 0
+				update()
+
+			if(href_list["handle"])
+				flush = text2num(href_list["handle"])
+				update()
+
+			if(href_list["eject"])
+				eject()
+		else
+			usr << browse(null, "window=pdu")
+			usr.machine = null
+			return
+		return
+
+
+
 
 // virtual disposal object
 // travels through pipes in lieu of actual items
