@@ -67,11 +67,11 @@
 				var/obj/item/weapon/weldingtool/W = I
 				if(W.remove_fuel(0,user))
 					playsound(src.loc, 'Welder2.ogg', 100, 1)
-					user << "You start slicing the floorweld off the disposal unit."
+					user << "You start slicing the floorweld off the [src]."
 
 					if(do_after(user,20))
 						if(!src || !W.isOn()) return
-						user << "You sliced the floorweld off the disposal unit."
+						user << "You sliced the floorweld off the [src]."
 						var/obj/structure/disposalconstruct/C = new (src.loc)
 						C.ptype = 6 // 6 = disposal unit
 						C.anchored = 1
@@ -84,7 +84,7 @@
 					return
 
 		if(istype(I, /obj/item/weapon/melee/energy/blade))
-			user << "You can't place that item inside the disposal unit."
+			user << "You can't place that item inside the [src]."
 			return
 
 		if(istype(I, /obj/item/weapon/trashbag))
@@ -154,24 +154,24 @@
 			var/msg
 			for (var/mob/V in viewers(usr))
 				if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-					V.show_message("[usr] starts climbing into the disposal.", 3)
+					V.show_message("[usr] starts climbing into the [src].", 3)
 				if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 					if(target.anchored) return
-					V.show_message("[usr] starts stuffing [target.name] into the disposal.", 3)
+					V.show_message("[usr] starts stuffing [target.name] into the [src]", 3)
 			if(!do_after(usr, 20))
 				return
 			if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in										// must be awake, not stunned or whatever
 
-				log_attack("<font color='red'>[user] ([user.ckey]) climbed into a disposals unit.</font>")
-				log_admin("ATTACK: [user] ([user.ckey]) climbed into in a disposals unit.")
+				log_attack("<font color='red'>[user] ([user.ckey]) climbed into the [src].</font>")
+				log_admin("ATTACK: [user] ([user.ckey]) climbed into in the [src].")
 				//message_admins("ATTACK: [user] ([user.ckey]) climbed into in a disposals unit.")
 
 				msg = "[user.name] climbs into the [src]."
 				user << "You climb into the [src]."
 			else if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 
-				log_attack("<font color='red'>[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit.</font>")
-				log_admin("ATTACK: [user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit.")
+				log_attack("<font color='red'>[user] ([user.ckey]) placed [target] ([target.ckey]) in the [src].</font>")
+				log_admin("ATTACK: [user] ([user.ckey]) placed [target] ([target.ckey]) in the [src].")
 				//message_admins("ATTACK: [user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit.")
 
 				msg = "[user.name] stuffs [target.name] into the [src]!"
