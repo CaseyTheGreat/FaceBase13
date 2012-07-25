@@ -34,7 +34,7 @@ var/datum/roundinfo/roundinfo = new()
 
 
 /datum/controller/gameticker/proc/pregame()
-	login_music = pick('title2.ogg', 'title3.ogg') // choose title music!
+	login_music = pick('title1.ogg') // choose title music!
 
 	do
 		pregame_timeleft = 90

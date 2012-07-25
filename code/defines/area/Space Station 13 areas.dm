@@ -795,7 +795,32 @@ proc/process_ghost_teleport_locs()
 /area/crew_quarters/bar
 	name = "\improper Bar"
 	icon_state = "bar"
-	music = "music/barmusic.ogg"
+	var/sound/mysound = null
+	New()
+		..()
+		var/sound/S = new/sound()
+		mysound = S
+		S.file = 'barmusic.ogg'
+		S.repeat = 1
+		S.wait = 0
+		S.channel = 123
+		S.volume = 75
+		S.priority = 255
+		S.status = SOUND_UPDATE
+//		process()
+
+	Entered(atom/movable/Obj,atom/OldLoc)
+		if(ismob(Obj))
+			if(Obj:client)
+				mysound.status = SOUND_UPDATE
+				Obj << mysound
+		return
+
+	Exited(atom/movable/Obj)
+		if(ismob(Obj))
+			if(Obj:client)
+				mysound.status = SOUND_PAUSED | SOUND_UPDATE
+				Obj << mysound
 
 /area/crew_quarters/theatre
 	name = "\improper Theatre"

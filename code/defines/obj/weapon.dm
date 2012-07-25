@@ -883,7 +883,7 @@
 	w_class = 3.0
 	throw_speed = 2
 	throw_range = 10
-	force = 15.0
+	force = 7.0
 	item_state = "fire_extinguisher"
 	m_amt = 90
 
