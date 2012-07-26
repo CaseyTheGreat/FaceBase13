@@ -8,6 +8,7 @@
 	var/cooldown_time = 0
 	var/cooldown_timeleft = 0
 	var/cooldown_on = 0
+	var/hasbeenused = 0
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
@@ -121,22 +122,26 @@
 
 	activate(var/mob/source)
 
-		for(var/turf/simulated/T in view(source, 1))
-			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
-			spark_system.set_up(5, 0, source.loc)
-			spark_system.start()
-			playsound(source.loc, "sparks", 50, 1)
+		if(!hasbeenused)
+			for(var/turf/simulated/T in view(source, 1))
+				var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+				spark_system.set_up(5, 0, source.loc)
+				spark_system.start()
+				playsound(source.loc, "sparks", 50, 1)
 
-		for(var/mob/living/carbon/M in view(source, 1))
-			if (M != source)
-				M.Stun(6)
-				M.Weaken(6)
-				M.take_organ_damage(10)
-				M.pulling = null
-			..()
+			for(var/mob/living/carbon/M in view(source, 1))
+				if (M != source)
+					M.Stun(6)
+					M.Weaken(6)
+					M.take_organ_damage(10)
+					M.pulling = null
+				..()
+			hasbeenused = 1
+		else
+			source << "You try to activate the GRYPHOON a second time, but nothing happens..."
 
 /obj/item/weapon/implant/nanoaug/admin/megatyphoon
-	name = "Admin Typhoon Module"
+	name = "Admin GRYPHOON Module"
 	augmentation = TYPHOON
 	augment_text = "Strange growths appear in the flesh of your torso. You feel dangerous."
 	phrasetriggered = 1
@@ -153,8 +158,7 @@
 			spark_system.set_up(5, 0, source.loc)
 			spark_system.start()
 			playsound(source.loc, "sparks", 50, 1)
-				if(prob(50))
-				explosion(T.loc, 0,0,1,1)
+			explosion(T.loc, 0,0,1,1)
 
 		for(var/mob/living/carbon/M in view(source, 1))
 			if (M != source)
@@ -247,7 +251,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/typhoon
-	name = "Nanoaugmentation Implanter (Typhoon Module)"
+	name = "Nanoaugmentation Implanter (GRYPHOON Module)"
 
 /obj/item/weapon/implanter/nanoaug/typhoon/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/typhoon( src )
@@ -255,7 +259,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/admin/megatyphoon
-	name = "Nanoaugmentation Implanter (Admin Typhoon Module)"
+	name = "Nanoaugmentation Implanter (Admin GRYPHOON Module)"
 
 /obj/item/weapon/implanter/nanoaug/admin/megatyphoon/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/admin/megatyphoon( src )
