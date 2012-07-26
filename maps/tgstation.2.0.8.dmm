@@ -5310,7 +5310,7 @@
 "bYf" = (/turf/simulated/floor/plating,/area/maintenance/aft)
 "bYg" = (/obj/machinery/light/small{dir = 4},/turf/simulated/floor/plating,/area/maintenance/aft)
 "bYh" = (/obj/item/clothing/head/ushanka,/obj/effect/landmark{name = "blobstart"},/obj/structure/disposalpipe/sortjunction{backsort = 1; backType = list("Engineering","Chief Engineer"); dir = 1; icon_state = "pipe-j1s"; sortType = list("Robotics")},/turf/simulated/floor/plating,/area/assembly/assembly_line)
-"bYi" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/wall/r_wall,/area/assembly/assembly_line)
+"bYi" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/wall,/area/assembly/assembly_line)
 "bYj" = (/obj/machinery/light,/obj/machinery/requests_console{department = "Assembly Line (Robotics)"; departmentType = 2; name = "assembly line RC"; pixel_y = -30},/turf/simulated/floor,/area/assembly/chargebay)
 "bYk" = (/obj/item/device/radio/intercom{name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor,/area/assembly/chargebay)
 "bYl" = (/obj/machinery/light,/turf/simulated/floor,/area/assembly/chargebay)
