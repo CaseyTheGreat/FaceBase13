@@ -2158,3 +2158,17 @@ eternal248: Found broken and buggy Z-levels 7-12, ended up leading to my discove
 	descriptor = "molted blue"
 	color = "blue"
 	newDesc = "It has a faint bitter berry taste, but still is hard to stomach. Strangely crunchy."
+
+/obj/item/weapon/dergdild
+	name = "dragon dildo"
+	desc = "Engraved with 'Bad Dragon', feels slick."
+	icon = 'derg.dmi'
+	icon_state = "dragondildo"
+	item_state = "dragondildo"
+	flags = FPRINT | TABLEPASS
+	slot_flags = SLOT_BELT
+	force = 10
+	throw_speed = 1
+	throw_range = 4
+	throwforce = 10
+	w_class = 1
