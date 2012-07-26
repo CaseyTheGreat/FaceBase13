@@ -267,7 +267,8 @@
 					playsound(src, "clownstep", 50, 1)
 
 			if(CLOWNWALK in M:augmentations)
-				src.wet = 1
+				if(prob(30))
+					src.wet = 1
 				playsound(src, "honk", 50, 1)
 
 		switch (src.wet)
