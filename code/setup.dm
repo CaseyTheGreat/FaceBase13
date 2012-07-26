@@ -306,6 +306,7 @@ var/MAX_EXPLOSION_RANGE = 14
 #define BANANASYNTH		29  // allows clowns to synthesize bananas
 #define CLOWNWALK		30  // spawns spacelube and makes bike noises
 #define NOSLIPFEET		31
+#define TYPHOON			32
 
 	// Other Mutations:
 #define mNobreath		100 	// no need to breathe

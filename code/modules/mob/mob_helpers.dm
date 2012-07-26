@@ -179,7 +179,9 @@ proc/slur(phrase)
 			if(lowertext(newletter)=="o")	newletter="u"
 			if(lowertext(newletter)=="s")	newletter="ch"
 			if(lowertext(newletter)=="a")	newletter="ah"
-			if(lowertext(newletter)=="c")	newletter="k"
+			if(lowertext(newletter)=="c")	newletter="g"
+			if(lowertext(newletter)=="p")	newletter="b"
+			if(lowertext(newletter)=="sc")	newletter="gsc"
 		switch(rand(1,15))
 			if(1,3,5,8)	newletter="[lowertext(newletter)]"
 			if(2,4,6,15)	newletter="[uppertext(newletter)]"

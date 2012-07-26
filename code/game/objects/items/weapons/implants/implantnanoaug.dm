@@ -4,7 +4,10 @@
 	var/augmentation
 	var/augment_text = "You feel strange..."
 	var/activation_emote = "fart"
-
+	var/phrasetriggered = 0
+	var/cooldown_time = 0
+	var/cooldown_timeleft = 0
+	var/cooldown_on = 0
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
@@ -24,7 +27,7 @@
 		var/mob/living/carbon/human/H = M
 		H.augmentations.Add(augmentation) // give them the mutation
 		H << "\blue [augment_text]"
-		if(istype(src, /obj/item/weapon/implant/nanoaug/eswordsynth) || istype(src, /obj/item/weapon/implant/nanoaug/clowning/bananasynth))
+		if(phrasetriggered == 1)
 			activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 			H.mind.store_memory("Freedom nanoaugmentation can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", 0, 0)
 			H << "The nanoaugmentation implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate."
@@ -61,6 +64,7 @@
 	name = "Energy Blade Synthesizer"
 	augmentation = ESWORDSYNTH
 	augment_text = "Your hands throb and pulsate. They feel sharper, and strangely hot."
+	phrasetriggered = 1
 
 	trigger(emote, source as mob)
 		if(emote == activation_emote)
@@ -103,6 +107,60 @@
 	name = "Adhesive Foot Soles"
 	augmentation = NOSLIPFEET
 	augment_text = "Your feet feel sticky to the touch."
+
+/obj/item/weapon/implant/nanoaug/typhoon
+	name = "Typhoon Module"
+	augmentation = TYPHOON
+	augment_text = "Strange growths appear in the flesh of your torso. You feel dangerous."
+	phrasetriggered = 1
+
+	trigger(emote, source as mob)
+		if(emote == activation_emote)
+			src.activate(source)
+		return
+
+	activate(var/mob/source)
+
+		for(var/turf/simulated/T in view(source, 1))
+			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+			spark_system.set_up(5, 0, source.loc)
+			spark_system.start()
+			playsound(source.loc, "sparks", 50, 1)
+
+		for(var/mob/living/carbon/M in view(source, 1))
+			if (M != source)
+				M.Stun(6)
+				M.Weaken(6)
+				M.take_organ_damage(10)
+				M.pulling = null
+			..()
+
+/obj/item/weapon/implant/nanoaug/admin/megatyphoon
+	name = "Admin Typhoon Module"
+	augmentation = TYPHOON
+	augment_text = "Strange growths appear in the flesh of your torso. You feel dangerous."
+	phrasetriggered = 1
+
+	trigger(emote, source as mob)
+		if(emote == activation_emote)
+			src.activate(source)
+		return
+
+	activate(var/mob/source)
+
+		for(var/turf/simulated/T in view(source, 1))
+			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+			spark_system.set_up(5, 0, source.loc)
+			spark_system.start()
+			playsound(source.loc, "sparks", 50, 1)
+				if(prob(50))
+				explosion(T.loc, 0,0,1,1)
+
+		for(var/mob/living/carbon/M in view(source, 1))
+			if (M != source)
+				M.gib()
+			..()
+
 
 /obj/item/weapon/implanter/nanoaug
 	name = "Nanoaugmentation Implanter (Empty)"
@@ -188,12 +246,29 @@
 	..()
 	update()
 
+/obj/item/weapon/implanter/nanoaug/typhoon
+	name = "Nanoaugmentation Implanter (Typhoon Module)"
+
+/obj/item/weapon/implanter/nanoaug/typhoon/New()
+	src.imp = new /obj/item/weapon/implant/nanoaug/typhoon( src )
+	..()
+	update()
+
+/obj/item/weapon/implanter/nanoaug/admin/megatyphoon
+	name = "Nanoaugmentation Implanter (Admin Typhoon Module)"
+
+/obj/item/weapon/implanter/nanoaug/admin/megatyphoon/New()
+	src.imp = new /obj/item/weapon/implant/nanoaug/admin/megatyphoon( src )
+	..()
+	update()
+
 ///CLOWNING MODULES
 
 /obj/item/weapon/implant/nanoaug/clowning/bananasynth
 	name = "Banana Synthesizer"
 	augmentation = BANANASYNTH
 	augment_text = "Your hands throb and pulsate. They feel plump and yellow."
+	phrasetriggered = 1
 
 	trigger(emote, source as mob)
 		if(emote == activation_emote)
