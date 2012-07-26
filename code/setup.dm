@@ -303,6 +303,9 @@ var/MAX_EXPLOSION_RANGE = 14
 #define DERMALARMOR		26 	// 35% damage decrease
 #define REFLEXES		27 	// dodge 50% of projectiles
 #define NANOREGEN		28 	// regenerative nanobots, -3 all damage types per second
+#define BANANASYNTH		29  // allows clowns to synthesize bananas
+#define CLOWNWALK		30  // spawns spacelube and makes bike noises
+#define NOSLIPFEET		31
 
 	// Other Mutations:
 #define mNobreath		100 	// no need to breathe

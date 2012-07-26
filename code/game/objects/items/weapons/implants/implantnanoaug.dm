@@ -24,7 +24,7 @@
 		var/mob/living/carbon/human/H = M
 		H.augmentations.Add(augmentation) // give them the mutation
 		H << "\blue [augment_text]"
-		if(istype(src, /obj/item/weapon/implant/nanoaug/eswordsynth))
+		if(istype(src, /obj/item/weapon/implant/nanoaug/eswordsynth) || istype(src, /obj/item/weapon/implant/nanoaug/clowning/bananasynth))
 			activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch_s", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
 			H.mind.store_memory("Freedom nanoaugmentation can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate.", 0, 0)
 			H << "The nanoaugmentation implant can be activated by using the [src.activation_emote] emote, <B>say *[src.activation_emote]</B> to attempt to activate."
@@ -99,6 +99,10 @@
 	augmentation = NANOREGEN
 	augment_text = "You feel a very faint vibration in your body. You instantly feel much younger."
 
+/obj/item/weapon/implant/nanoaug/adhesivefeet
+	name = "Adhesive Foot Soles"
+	augmentation = NOSLIPFEET
+	augment_text = "Your feet feel sticky to the touch."
 
 /obj/item/weapon/implanter/nanoaug
 	name = "Nanoaugmentation Implanter (Empty)"
@@ -113,7 +117,7 @@
 
 
 /obj/item/weapon/implanter/nanoaug/strength
-	name = "Nanoaugmentation Implaner (Superhuman Strength)"
+	name = "Nanoaugmentation Implanter (Superhuman Strength)"
 
 /obj/item/weapon/implanter/nanoaug/strength/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/strength( src )
@@ -121,7 +125,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/radar
-	name = "Nanoaugmentation Implaner (Short-range Psionic Radar)"
+	name = "Nanoaugmentation Implanter (Short-range Psionic Radar)"
 
 /obj/item/weapon/implanter/nanoaug/radar/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/radar( src )
@@ -129,7 +133,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/electrichands
-	name = "Nanoaugmentation Implaner (Electric Hands)"
+	name = "Nanoaugmentation Implanter (Electric Hands)"
 
 /obj/item/weapon/implanter/nanoaug/electrichands/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/electrichands( src )
@@ -137,7 +141,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/eswordsynth
-	name = "Nanoaugmentation Implaner (Energy Blade Synthesizer)"
+	name = "Nanoaugmentation Implanter (Energy Blade Synthesizer)"
 
 /obj/item/weapon/implanter/nanoaug/eswordsynth/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/eswordsynth( src )
@@ -145,7 +149,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/rebreather
-	name = "Nanoaugmentation Implaner (Bioelectric Rebreather)"
+	name = "Nanoaugmentation Implanter (Bioelectric Rebreather)"
 
 /obj/item/weapon/implanter/nanoaug/rebreather/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/rebreather( src )
@@ -153,7 +157,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/dermalarmor
-	name = "Nanoaugmentation Implaner (Skin-intergrated Dermal Armor)"
+	name = "Nanoaugmentation Implanter (Skin-intergrated Dermal Armor)"
 
 /obj/item/weapon/implanter/nanoaug/dermalarmor/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/dermalarmor( src )
@@ -161,7 +165,7 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/reflexes
-	name = "Nanoaugmentation Implaner (Combat Reflexes)"
+	name = "Nanoaugmentation Implanter (Combat Reflexes)"
 
 /obj/item/weapon/implanter/nanoaug/reflexes/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/reflexes( src )
@@ -169,11 +173,61 @@
 	update()
 
 /obj/item/weapon/implanter/nanoaug/nanoregen
-	name = "Nanoaugmentation Implaner (Regenerative Nanobots)"
+	name = "Nanoaugmentation Implanter (Regenerative Nanobots)"
 
 /obj/item/weapon/implanter/nanoaug/nanoregen/New()
 	src.imp = new /obj/item/weapon/implant/nanoaug/nanoregen( src )
 	..()
 	update()
 
+/obj/item/weapon/implanter/nanoaug/adhesivefeet
+	name = "Nanoaugmentation Implanter (Adhesive Foot Soles)"
 
+/obj/item/weapon/implanter/nanoaug/adhesivefeet/New()
+	src.imp = new /obj/item/weapon/implant/nanoaug/adhesivefeet( src )
+	..()
+	update()
+
+///CLOWNING MODULES
+
+/obj/item/weapon/implant/nanoaug/clowning/bananasynth
+	name = "Banana Synthesizer"
+	augmentation = BANANASYNTH
+	augment_text = "Your hands throb and pulsate. They feel plump and yellow."
+
+	trigger(emote, source as mob)
+		if(emote == activation_emote)
+			src.activate(source)
+		return
+
+	activate(var/mob/source)
+
+		var/obj/item/weapon/bananapeel/bananaspawn = new /obj/item/weapon/bananapeel
+		if(!source.get_active_hand())
+			source.put_in_hand(bananaspawn)
+
+		playsound(source.loc, "honk", 50, 1)
+		..()
+
+/obj/item/weapon/implanter/nanoaug/clowning/bananasynth
+	name = "Clowning Nanoaugmentation Implanter (Banana Synthesizer)"
+
+/obj/item/weapon/implanter/nanoaug/clowning/bananasynth/New()
+	src.imp = new /obj/item/weapon/implant/nanoaug/clowning/bananasynth( src )
+	..()
+	update()
+
+
+
+/obj/item/weapon/implant/nanoaug/clowning/clownwalk
+	name = "Clownwalk Module"
+	augmentation = CLOWNWALK
+	augment_text = "Your feet feel slippery and bulbous. They seem to be oozing a clear substance."
+
+/obj/item/weapon/implanter/nanoaug/clowning/clownwalk
+	name = "Clowning Nanoaugmentation Implanter (Clownwalk Module)"
+
+/obj/item/weapon/implanter/nanoaug/clowning/clownwalk/New()
+	src.imp = new /obj/item/weapon/implant/nanoaug/clowning/clownwalk( src )
+	..()
+	update()

@@ -262,14 +262,18 @@
 					else
 						M.footstep++
 					if(M.footstep == 0)
-						playsound(src, "clownstep", 50, 1) // this will get annoying very fast.
+						playsound(src, "clownstep", 50, 1)
 				else
-					playsound(src, "clownstep", 20, 1)
+					playsound(src, "clownstep", 50, 1)
+
+			if(CLOWNWALK in M:augmentations)
+				src.wet = 1
+				playsound(src, "honk", 50, 1)
 
 		switch (src.wet)
 			if(1)
 				if(istype(M, /mob/living/carbon/human)) // Added check since monkeys don't have shoes
-					if ((M.m_intent == "run") && !(istype(M:shoes, /obj/item/clothing/shoes) && M:shoes.flags&NOSLIP))
+					if ((M.m_intent == "run") && !(istype(M:shoes, /obj/item/clothing/shoes) && M:shoes.flags&NOSLIP) || NOSLIPFEET in M:augmentations)
 						M.pulling = null
 						step(M, M.dir)
 						M << "\blue You slipped on the wet floor!"

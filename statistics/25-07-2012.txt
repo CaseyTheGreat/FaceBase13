@@ -1,0 +1,5 @@
+Zone | Chemistry | 21.8366, 82.1472, 0, 0 | 293.15 | 5000
+Zone | Space | 10.2958, 38.7225, 0, 0 | 2.7 | 7500
+Zone | The Telecoms Foyer | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
+Zone | The Arrival Shuttle Hallway | 21.8366, 82.1472, 0, 0 | 293.15 | 5000
+Death | Space | 0, 34, 0, 0
