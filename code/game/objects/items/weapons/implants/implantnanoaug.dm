@@ -8,7 +8,7 @@
 	var/cooldown_time = 0
 	var/cooldown_timeleft = 0
 	var/cooldown_on = 0
-	var/hasbeenused = 0
+	var/uses = 0
 	get_data()
 		var/dat = {"
 <b>Implant Specifications:</b><BR>
@@ -114,6 +114,7 @@
 	augmentation = TYPHOON
 	augment_text = "Strange growths appear in the flesh of your torso. You feel dangerous."
 	phrasetriggered = 1
+	uses = 3
 
 	trigger(emote, source as mob)
 		if(emote == activation_emote)
@@ -122,7 +123,7 @@
 
 	activate(var/mob/source)
 
-		if(!hasbeenused)
+		if(uses > 0)
 			for(var/turf/simulated/T in view(source, 1))
 				var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 				spark_system.set_up(5, 0, source.loc)
@@ -136,9 +137,9 @@
 					M.take_organ_damage(10)
 					M.pulling = null
 				..()
-			hasbeenused = 1
+			uses--
 		else
-			source << "You try to activate the GRYPHOON a second time, but nothing happens..."
+			source << "You try to activate the GRYPHOON, but nothing happens. You appear to be out of stun pellets."
 
 /obj/item/weapon/implant/nanoaug/admin/megatyphoon
 	name = "Admin GRYPHOON Module"

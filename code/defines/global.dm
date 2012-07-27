@@ -190,9 +190,9 @@ var/list/paper_blacklist = list("script","frame","iframe","input","button","a","
 
 var/sqladdress = "localhost"
 var/sqlport = "3306"
-var/sqldb = "tgstation"
+var/sqldb = "facebase13"
 var/sqllogin = "root"
-var/sqlpass = ""
+var/sqlpass = "root"
 
 	// Feedback gathering sql connection
 
@@ -200,7 +200,7 @@ var/sqlfdbkdb = "test"
 var/sqlfdbklogin = "root"
 var/sqlfdbkpass = ""
 
-var/sqllogging = 0 // Should we log deaths, population stats, etc?
+var/sqllogging = 1 // Should we log deaths, population stats, etc?
 
 
 
