@@ -119,6 +119,18 @@
 	IsShield()
 		return 1
 
+/obj/item/weapon/guitar/acoustic
+	name = "Acoustic Guitar"
+	desc = "Handy for rustic entertainment when the power fails in remote corners of the station. Doubles as a bludgeon."	//SKULLS FOR THE SKULL THRONE. --SkyMarshal
+	icon_state = "guitar"
+	item_state = "guitar"
+	flags = TABLEPASS
+	slot_flags = SLOT_BACK
+	force = 10
+	throwforce = 10
+	w_class = 3
+
+
 /obj/item/weapon/bodybag
 	name = "body bag"
 	desc = "A bag used to deal with a corpse."

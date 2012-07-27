@@ -210,3 +210,5 @@
 	for(var/mob/O in viewers(src, null))
 		O.show_message("\red <B>The mousetrap is triggered by [A].</B>", 1)
 	src.triggered(null)
+
+
