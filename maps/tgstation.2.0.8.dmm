@@ -257,7 +257,7 @@
 "aeW" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/simulated/floor,/area/security/brig)
 "aeX" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/cable,/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor,/area/security/main)
 "aeY" = (/obj/structure/table,/turf/simulated/floor,/area/security/main)
-"aeZ" = (/obj/machinery/hologram/holopad,/turf/simulated/floor,/area/security/main)
+"aeZ" = (/obj/machinery/hologram/holopad,/obj/effect/showcase,/turf/simulated/floor,/area/security/main)
 "afa" = (/obj/structure/table,/obj/item/weapon/book/manual/security_space_law,/turf/simulated/floor,/area/security/main)
 "afb" = (/obj/structure/stool/bed/chair{dir = 8},/turf/simulated/floor,/area/security/main)
 "afc" = (/obj/machinery/camera{c_tag = "HQ East"; dir = 1; network = "Security"},/turf/simulated/floor,/area/security/main)
