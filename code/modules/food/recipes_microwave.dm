@@ -80,14 +80,12 @@
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/burger/brain
 
-/* NO FUN ALLOWED
 /datum/recipe/roburger
 	items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/bun,
 		/obj/item/robot_parts/head
 	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/roburger
-*/
+	result = /obj/item/weapon/reagent_containers/food/snacks/burger/roburger
 
 /datum/recipe/xenoburger
 	items = list(

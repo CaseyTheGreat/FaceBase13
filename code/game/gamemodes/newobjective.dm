@@ -679,7 +679,7 @@ datum
 						return 20
 
 
-			/*burger
+			burger
 				steal_target = /obj/item/weapon/reagent_containers/food/snacks/human/burger
 				explanation_text = "Steal a burger made out of human organs, this will be presented as proof of NanoTrasen's chronic lack of standards."
 				weight = 60
@@ -695,7 +695,7 @@ datum
 						if(3)
 							return 40
 						if(4)
-							return 25*/
+							return 25
 
 
 			jetpack

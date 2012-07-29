@@ -467,7 +467,7 @@
 	desc = "What.. is that meat?"
 	icon_state = "tofuburger"
 
-/obj/item/weapon/reagent_containers/food/snacks/burger/ro
+/obj/item/weapon/reagent_containers/food/snacks/burger/roburger
 	name = "roburger"
 	desc = "The lettuce is the only organic component. Beep."
 	icon_state = "roburger"
@@ -475,7 +475,7 @@
 		..()
 		reagents.add_reagent("nanites", 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/burger/ro_big
+/obj/item/weapon/reagent_containers/food/snacks/burger/roburger_big
 	name = "roburger"
 	desc = "This massive patty looks like poison. Beep."
 	icon_state = "roburger"
@@ -497,13 +497,13 @@
 	name = "Clown Burger"
 	desc = "This tastes funny..."
 	icon_state = "clownburger"
-/*	New()
+	New()
 		..()
 
 		var/datum/disease/F = new /datum/disease/pierrot_throat(0)
 		var/list/data = list("viruses"= list(F))
 		reagents.add_reagent("blood", 4, data)
-*/
+
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/mime
 	name = "Mime Burger"
@@ -1992,7 +1992,8 @@
 		del(W)
 		del(src)
 
-	// Bun + cutlet = hamburger
+	// Bun + cutlet =
+
 	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/cutlet))
 		var/turf/spawnloc = foodloc(user, src)
 		new /obj/item/weapon/reagent_containers/food/snacks/burger(spawnloc)

@@ -122,7 +122,9 @@ ZIPPO
 	var/icon_butt = "cigbutt"
 	var/lastHolder = null
 	var/smoketime = 300
-	var/chem_volume = 15
+	var/chem_volume = 30
+	var/reagent = null
+	var/initialized = 0
 	var/butt_count = 5  //count of butt sprite variations
 
 /obj/item/clothing/mask/cigarette/New()
@@ -134,8 +136,15 @@ ZIPPO
 	..()
 	del(reagents)
 
+/obj/item/clothing/mask/cigarette/initialize()
+	src.reagents.add_reagent(reagent, chem_volume/2)
+
+
 /obj/item/clothing/mask/cigarette/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
+	if(!initialized)
+		src.initialize()
+		initialized = 1
 	if(istype(W, /obj/item/weapon/weldingtool))
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn())//Badasses dont get blinded while lighting their cig with a welding tool
@@ -165,6 +174,9 @@ ZIPPO
 
 /obj/item/clothing/mask/cigarette/afterattack(obj/item/weapon/reagent_containers/glass/glass, mob/user as mob)
 	..()
+	if(!initialized)
+		src.initialize()
+		initialized = 1
 	if(istype(glass)) // you can dip cigarettes into beakers
 		var/transfered = glass.reagents.trans_to(src, chem_volume)
 		if(transfered) // if reagents were transfered, show the message
