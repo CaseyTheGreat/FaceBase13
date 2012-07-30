@@ -2110,17 +2110,20 @@ datum
 						if (!M:slurring) M:slurring = 1
 						M.make_dizzy(5)
 						if(prob(10)) M:emote(pick("twitch","giggle"))
+						M:hallucination += 5
 					if(5 to 10)
 						if (!M:slurring) M:slurring = 1
 						M.make_jittery(10)
 						M.make_dizzy(10)
 						M.druggy = max(M.druggy, 35)
+						M:hallucination += 5
 						if(prob(20)) M:emote(pick("twitch","giggle"))
 					if (10 to INFINITY)
 						if (!M:slurring) M:slurring = 1
 						M.make_jittery(20)
 						M.make_dizzy(20)
 						M.druggy = max(M.druggy, 40)
+						M:hallucination += 5
 						if(prob(30)) M:emote(pick("twitch","giggle"))
 				holder.remove_reagent(src.id, 0.2)
 				data++
@@ -2138,18 +2141,17 @@ datum
 				M.druggy = max(M.druggy, 30)
 				if(!data) data = 1
 				switch(data)
-					if(1 to 5)
+					if(1 to 4)
 						if (!M:highspeak) M:highspeak = 1
 						if(prob(10)) M:emote("giggle")
-					if(5 to 10)
+					if(4 to 8)
 						if (!M:highspeak) M:highspeak = 1
 						M.druggy = max(M.druggy, 35)
 						if(prob(20)) M:emote("giggle")
-					if (10 to INFINITY)
+					if (8 to INFINITY)
 						if (!M:highspeak) M:highspeak = 1
 						M.druggy = max(M.druggy, 40)
 						if(prob(30)) M:emote("giggle")
-				holder.remove_reagent(src.id, 0.2)
 				data++
 				..()
 				return

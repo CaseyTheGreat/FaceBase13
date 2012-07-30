@@ -66,7 +66,13 @@
 	if (src.slurring)
 		return "slurrs, \"[text]\"";
 	if (src.highspeak)
-		return "giggles, \"[text]\"";
+		switch(rand(1,3))
+			if(1)
+				return "giggles, \"[text]\"";
+			if(2)
+				return "titters, \"[text]\"";
+			if(3)
+				return "chortles, \"[text]\"";
 	if (src.getBrainLoss() >= 60)
 		return "gibbers, \"[text]\"";
 	if (ending == "?")

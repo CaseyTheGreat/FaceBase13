@@ -2,3 +2,13 @@ Zone | The Derelict Solar Control | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
 Death | Space | 0, 45, 0, 0
 Zone | Atmospherics | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
 Explosion | The Cafeteria | -1, 0, 1, -1
+Zone | Mining Station Living Quarters | 21.8366, 82.1472, 0, 0 | 293.15 | 7500
+Death | Space | 0, 46, 0, 0
+Death | Space | 0, 40, 0, 0
+Zone | Engineering | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
+Death | Space | 0, 16, 0, 0
+Death | Space | 0, 41, 0, 0
+Zone | EVA Storage | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
+Death | Space | 0, 24, 0, 0
+Death | Space | 0, 27, 0, 0
+Zone | The Cargo Bay | 21.8291, 82.1191, 0, 0 | 293.15 | 225000

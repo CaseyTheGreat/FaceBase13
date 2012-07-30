@@ -231,8 +231,8 @@ ZIPPO
 	if(reagents && reagents.total_volume)	//	check if it has any reagents at all
 		if( iscarbon(src.loc) && (src == loc:wear_mask) ) // if it's in the human/monkey mouth, transfer reagents to the mob
 			var/mob/living/carbon/C = loc
-			if(prob(15)) // so it's not an instarape in case of acid
-				reagents.reaction(C, INGEST)
+			if(prob(50)) // so it's not an instarape in case of acid
+				reagents.reaction(C, INGEST*((chem_volume*2)/3))
 			reagents.trans_to(C, REAGENTS_METABOLISM)
 		else // else just remove some of the reagents
 			reagents.remove_any(REAGENTS_METABOLISM)
