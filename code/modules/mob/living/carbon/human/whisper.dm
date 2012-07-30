@@ -60,6 +60,8 @@
 		message = NewStutter(message,stunned)
 	if (src.slurring)
 		message = slur(message)
+	if (src.highspeak)
+		message = high(message)
 
 	for (var/obj/O in view(message_range, src))
 		spawn (0)

@@ -162,6 +162,8 @@
 		message = stutter(message)
 	if (slurring)
 		message = slur(message)
+	if (highspeak)
+		message = high(message)
 
 /* //qw do not have beesease atm.
 	if(virus)

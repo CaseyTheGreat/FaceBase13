@@ -203,6 +203,8 @@ var/list/department_radio_keys = list(
 		message = NewStutter(message,stunned)
 	if (slurring)
 		message = slur(message)
+	if (highspeak)
+		message = high(message)
 
 /* //qw do not have beesease atm.
 	if(virus)

@@ -2127,6 +2127,33 @@ datum
 				..()
 				return
 
+		thc
+			name = "Delta-5-Tetrahydrocannabinol"
+			id = "thc"
+			description = "An analgesic that causes mild euphoria, commonly found in the buds of the female Cannabis plant."
+			color = "#00CC00" // rgb: 231, 0, 231
+
+			on_mob_life(var/mob/living/M as mob)
+				if(!M) M = holder.my_atom
+				M.druggy = max(M.druggy, 30)
+				if(!data) data = 1
+				switch(data)
+					if(1 to 5)
+						if (!M:highspeak) M:highspeak = 1
+						if(prob(10)) M:emote("giggle")
+					if(5 to 10)
+						if (!M:highspeak) M:highspeak = 1
+						M.druggy = max(M.druggy, 35)
+						if(prob(20)) M:emote("giggle")
+					if (10 to INFINITY)
+						if (!M:highspeak) M:highspeak = 1
+						M.druggy = max(M.druggy, 40)
+						if(prob(30)) M:emote("giggle")
+				holder.remove_reagent(src.id, 0.2)
+				data++
+				..()
+				return
+
 		sprinkles
 			name = "Sprinkles"
 			id = "sprinkles"

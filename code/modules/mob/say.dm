@@ -65,6 +65,8 @@
 		return "stammers, \"[text]\"";
 	if (src.slurring)
 		return "slurrs, \"[text]\"";
+	if (src.highspeak)
+		return "giggles, \"[text]\"";
 	if (src.getBrainLoss() >= 60)
 		return "gibbers, \"[text]\"";
 	if (ending == "?")

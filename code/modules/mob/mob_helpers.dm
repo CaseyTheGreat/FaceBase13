@@ -192,6 +192,34 @@ proc/slur(phrase)
 		newphrase+="[newletter]";counter-=1
 	return newphrase
 
+proc/high(phrase)
+	phrase = html_decode(phrase)
+	var/leng=lentext(phrase)
+	var/counter=lentext(phrase)
+	var/newphrase=""
+	var/newletter=""
+	while(counter>=1)
+		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
+		switch(rand(1,4))
+			if(3)
+				if(lowertext(newletter)=="a")	newletter="aa"
+				if(lowertext(newletter)=="e")	newletter="ee"
+				if(lowertext(newletter)=="i")	newletter="ii"
+				if(lowertext(newletter)=="o")	newletter="oo"
+				if(lowertext(newletter)=="u")	newletter="uu"
+				if(lowertext(newletter)=="th")	newletter="thh"
+				if(lowertext(newletter)=="s")	newletter="ss"
+			if(4)
+				if(lowertext(newletter)=="a")	newletter="aaa"
+				if(lowertext(newletter)=="e")	newletter="eee"
+				if(lowertext(newletter)=="i")	newletter="iii"
+				if(lowertext(newletter)=="o")	newletter="ooo"
+				if(lowertext(newletter)=="u")	newletter="uuu"
+				if(lowertext(newletter)=="th")	newletter="thh"
+				if(lowertext(newletter)=="s")	newletter="sss"
+		newphrase+="[newletter]";counter-=1
+	return newphrase
+
 /proc/stutter(n)
 	var/te = html_decode(n)
 	var/t = ""//placed before the message. Not really sure what it's for.

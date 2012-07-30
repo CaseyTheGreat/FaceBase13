@@ -1,2 +1,4 @@
 Zone | The Derelict Solar Control | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
 Death | Space | 0, 45, 0, 0
+Zone | Atmospherics | 21.8366, 82.1472, 0, 0 | 293.15 | 2500
+Explosion | The Cafeteria | -1, 0, 1, -1
