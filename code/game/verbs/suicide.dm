@@ -61,6 +61,10 @@
 			src << "\red <b>You extend your proboscis and stab yourself in the chest.</b>"
 			bruteloss = max(175 - getToxLoss() - getFireLoss() - getOxyLoss(), getBruteLoss())
 
+		else
+			viewers(src) << "\red <b>[src] is attempting to bite \his tongue. It looks like \he's trying to commit suicide.</b>"
+			adjustOxyLoss(max(175 - getToxLoss() - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
+
 		updatehealth()
 
 /mob/living/carbon/brain/verb/suicide()

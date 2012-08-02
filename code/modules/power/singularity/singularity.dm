@@ -544,6 +544,47 @@ var/global/list/uneatable = list(
 				target << "\red <b>NAR-SIE HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL</b>"
 
 
+	chaosdunk
+		name = "Chaos Sphere"
+		desc = "Your mind begins to bubble and ooze as it is bombarded by negative b-ball protons"
+		icon = 'magic_terror.dmi'
+		pixel_x = -89
+		pixel_y = -85
+		current_size = 9 //It moves/eats like a max-size singulo, aside from range. --NEO
+		contained = 0 //Are we going to move around?
+		dissipate = 0 //Do we lose energy over time?
+		move_self = 1 //Do we move on our own?
+		grav_pull = 10 //How many tiles out do we pull?
+		consume_range = 3 //How many tiles out do we eat
+
+		process()
+			spawn(0)
+				eat()
+				move()
+				if(prob(25))
+					mezzer()
+
+		consume(var/atom/A) //Has its own consume proc because it doesn't need energy and I don't want BoHs to explode it. --NEO
+			if(is_type_in_list(A, uneatable))
+				return 0
+			if (istype(A,/mob/living))//Mobs get gibbed
+				A:gib()
+			else if(istype(A,/obj/))
+				A:ex_act(1.0)
+				if(A) del(A)
+			else if(isturf(A))
+				var/turf/T = A
+				if(T.intact)
+					for(var/obj/O in T.contents)
+						if(O.level != 1)
+							continue
+						if(O.invisibility == 101)
+							src.consume(O)
+				A:ReplaceWithSpace()
+			return
+
+		ex_act() //No throwing bombs at it either. --NEO
+			return
 
 /obj/machinery/singularity/narsie/wizard
 	grav_pull = 0
