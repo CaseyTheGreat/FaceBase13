@@ -2635,6 +2635,21 @@ datum
 				..()
 				return
 
+		adrenalin
+			name = "Adrenalin"
+			id = "adrenalin"
+			description = "A stimulant naturally produced by the human adrenal gland. Can be used to instantly bring people back from crit or unconsciousness."
+			reagent_state = LIQUID
+
+			on_mob_life(var/mob/living/M as mob)
+				M.make_jittery(3)
+				M:drowsyness = 0
+				if(M.stat == 1)
+					M.stat = CONSCIOUS
+				..()
+				return
+
+
 		spacemountainwind
 			name = "Space Mountain Wind"
 			id = "spacemountainwind"

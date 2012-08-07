@@ -271,6 +271,8 @@
 
 	if(reagents.has_reagent("nuka_cola")) return -3
 
+	if(reagents.has_reagent("adrenalin")) return -3
+
 	if(analgesic) return -3
 
 	if (istype(loc, /turf/space)) return -3 // It's hard to be slowed down in space by... anything
