@@ -10,6 +10,9 @@
 /proc/robogibs(atom/location, var/list/viruses)
 	new /obj/effect/gibspawner/robot(get_turf(location),viruses)
 
+/proc/poogibs(atom/location, var/list/viruses)
+	new /obj/effect/gibspawner/poogib(get_turf(location),viruses)
+
 /obj/effect/gibspawner
 	var/sparks = 0 //whether sparks spread on Gib()
 	var/virusProb = 20 //the chance for viruses to spread on the gibs
@@ -97,6 +100,15 @@
 		sparks = 1
 		gibtypes = list(/obj/effect/decal/cleanable/robot_debris/up,/obj/effect/decal/cleanable/robot_debris/down,/obj/effect/decal/cleanable/robot_debris,/obj/effect/decal/cleanable/robot_debris,/obj/effect/decal/cleanable/robot_debris,/obj/effect/decal/cleanable/robot_debris/limb)
 		gibamounts = list(1,1,1,1,1,1)
+
+		New()
+			gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs)
+			gibamounts[6] = pick(0,1,2)
+			..()
+
+	poogib
+		gibtypes = list(/obj/effect/decal/cleanable/poo)
+		gibamounts = list(6)
 
 		New()
 			gibdirections = list(list(NORTH, NORTHEAST, NORTHWEST),list(SOUTH, SOUTHEAST, SOUTHWEST),list(WEST, NORTHWEST, SOUTHWEST),list(EAST, NORTHEAST, SOUTHEAST), alldirs, alldirs)
