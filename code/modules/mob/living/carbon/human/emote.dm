@@ -418,13 +418,39 @@
 			m_type = 2
 
 		if ("poo")
-			if(src.nutrition >= 150)
-				src.nutrition -= 150
-				message = "<B>[src]</B> takes a graceful shit on the floor!"
-				playsound(loc, 'squishy.ogg', 50, 1, -5)
-				playsound(loc, 'fart.ogg', 50, 1, -5)
-				m_type = 2
-				new /obj/effect/decal/cleanable/poo(src.loc)
+			if(hasbutt == 1)
+				if(src.nutrition>=150)
+					message = "<B>[src]</B> takes a graceful shit on the floor!"
+					playsound(loc, 'squishy.ogg', 50, 1, -5)
+					playsound(loc, 'fart.ogg', 50, 1, -5)
+					m_type = 2
+					src.nutrition -= 50
+					new /obj/effect/decal/cleanable/poo(src.loc)
+				if((src.nutrition>=100)&&(src.nutrition<150))
+					message = "<B>[src]</B> takes a shit on the floor!"
+					playsound(loc, 'squishy.ogg', 50, 1, -5)
+					playsound(loc, 'fart.ogg', 50, 1, -5)
+					m_type = 2
+					src.nutrition -= 50
+					new /obj/effect/decal/cleanable/poo(src.loc)
+				if((src.nutrition>=50)&&(src.nutrition<100))
+					message = "<B>[src]</B> takes a strained shit on the floor!"
+					src << "You had to really strain for this one. The next one could be <B>THE BIG ONE</B>!"
+					playsound(loc, 'squishy.ogg', 50, 1, -5)
+					playsound(loc, 'fart.ogg', 50, 1, -5)
+					m_type = 2
+					src.nutrition -= 50
+					new /obj/effect/decal/cleanable/poo(src.loc)
+				if((src.nutrition>=0)&&(src.nutrition<50))
+					message = "<B>[src]'s</B> butt explodes!"
+					src << "<B>Your ass explodes!</B>"
+					playsound(loc, 'squishy.ogg', 50, 1, -5)
+					playsound(loc, 'fart.ogg', 50, 1, -5)
+					m_type = 2
+					src.nutrition -= 50
+					hasbutt = 0
+					new /obj/effect/gibspawner/poogib(src.loc)
+
 
 		if ("sniff")
 			message = "<B>[src]</B> sniffs."

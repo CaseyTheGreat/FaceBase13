@@ -10,7 +10,7 @@
 /proc/robogibs(atom/location, var/list/viruses)
 	new /obj/effect/gibspawner/robot(get_turf(location),viruses)
 
-/proc/poogibs(atom/location, var/list/viruses)
+/proc/poogibs(atom/location, var/list/viruses, var/datum/dna/MobDNA)
 	new /obj/effect/gibspawner/poogib(get_turf(location),viruses)
 
 /obj/effect/gibspawner
