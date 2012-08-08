@@ -1,0 +1,5 @@
+Zone | Space | 0.004, 0.004, 0, 0 | 2.7 | 175000
+Zone | The Central Primary Hallway | 21.8303, 82.1235, 0, 0 | 293.15 | 267500
+Explosion | Primary Tool Storage | 8, 5, 5, 5
+Death | Primary Tool Storage | 0, 0, 0, 0
+Explosion | Primary Tool Storage | -1, 0, 2, 
