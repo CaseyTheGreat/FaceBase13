@@ -9,7 +9,7 @@
 	armor = list(melee = 65, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)
 
 
-/obj/item/clothing/suit/armor/captain
+/obj/item/clothing/suit/space/captain
 	name = "captain's armor"
 	desc = "A bulky, heavy-duty piece of exclusive Nanotrasen armor. YOU are in charge!"
 	icon_state = "caparmor"

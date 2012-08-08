@@ -1,0 +1,4 @@
+Zone | The Syndicate Elite Shuttle | 0.005, 0.005, 0, 0 | 2.7 | 15000
+Zone | Mining station | 21.8366, 82.1472, 0, 0 | 293.15 | 12500
+Death | Space | 0, 25, 0, 0
+Death | Space | 0, 21, 0, 0

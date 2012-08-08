@@ -1323,7 +1323,7 @@
 			// -----------------------------------------------------
 			if (pressure)
 
-				if(istype(wear_suit, /obj/item/clothing/suit/space)||istype(wear_suit, /obj/item/clothing/suit/armor/captain))
+				if(istype(wear_suit, /obj/item/clothing/suit/space)||istype(wear_suit, /obj/item/clothing/suit/space/captain))
 					pressure.icon_state = "pressure0"
 
 				else

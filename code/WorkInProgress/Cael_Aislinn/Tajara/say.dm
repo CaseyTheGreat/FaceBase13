@@ -164,6 +164,8 @@
 		message = slur(message)
 	if (highspeak)
 		message = high(message)
+	if (swede)
+		message = swedify(message)
 
 /* //qw do not have beesease atm.
 	if(virus)

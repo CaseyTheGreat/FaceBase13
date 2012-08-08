@@ -56,6 +56,7 @@
 		H.equip_if_possible(new /obj/item/clothing/shoes/black(H), H.slot_shoes)
 		H.equip_if_possible(new /obj/item/clothing/head/chefhat(H), H.slot_head)
 		H.equip_if_possible(new /obj/item/device/pda/chef(H), H.slot_belt)
+		H:swede = 1
 		return 1
 
 

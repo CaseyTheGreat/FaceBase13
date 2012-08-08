@@ -220,6 +220,25 @@ proc/high(phrase)
 		newphrase+="[newletter]";counter-=1
 	return newphrase
 
+proc/swedify(phrase)
+	phrase = html_decode(phrase)
+	var/leng=lentext(phrase)
+	var/counter=lentext(phrase)
+	var/newphrase=""
+	var/newletter=""
+	while(counter>=1)
+		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
+		if(lowertext(newletter)=="a")	newletter="e"
+		if(lowertext(newletter)=="i")	newletter="e"
+		if(lowertext(newletter)=="o")	newletter="u"
+		if(lowertext(newletter)=="v")	newletter="f"
+		if(lowertext(newletter)=="y")	newletter="ee"
+		newphrase+="[newletter]";counter-=1
+	switch(rand(1,5))
+		if(1)
+			newphrase += " bork bork bork!"
+	return newphrase
+
 /proc/stutter(n)
 	var/te = html_decode(n)
 	var/t = ""//placed before the message. Not really sure what it's for.

@@ -62,6 +62,8 @@
 		message = slur(message)
 	if (src.highspeak)
 		message = high(message)
+	if (src.swede)
+		message = swedify(message)
 
 	for (var/obj/O in view(message_range, src))
 		spawn (0)

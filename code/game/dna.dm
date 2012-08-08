@@ -138,6 +138,7 @@
 	temp += add_zero2(num2hex((character.g_eyes),1), 3)
 	temp += add_zero2(num2hex((character.b_eyes),1), 3)
 
+
 	var/gender
 
 	if (character.gender == MALE)
