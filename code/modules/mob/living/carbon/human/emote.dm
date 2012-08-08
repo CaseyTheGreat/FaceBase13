@@ -1,6 +1,7 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
 
+
 	if(!emote_allowed && usr == src)
 		usr << "You are unable to emote."
 		return
@@ -12,6 +13,7 @@
 
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	//var/m_type = 1
+
 
 	for(var/named in organs)
 		var/datum/organ/external/F = organs[named]
@@ -416,9 +418,11 @@
 			m_type = 2
 
 		if ("poo")
-			if(src.nutrition >= 350)
+			if(src.nutrition >= 150)
+				src.nutrition -= 150
 				message = "<B>[src]</B> takes a graceful shit on the floor!"
 				playsound(loc, 'squishy.ogg', 50, 1, -5)
+				playsound(loc, 'fart.ogg', 50, 1, -5)
 				m_type = 2
 				new /obj/effect/decal/cleanable/poo(src.loc)
 

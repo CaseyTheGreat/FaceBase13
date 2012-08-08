@@ -9,12 +9,14 @@
 	throwforce = 15
 	w_class = 2.0
 	m_amt = 5000
+	var/dunking = 0
 
 
 	verb/chaos_dunk()
 		set src in usr
 		set name = "CHAAOOOS DUUUUNNNK"
 		set desc = "NEGATIVE B BALL PROTONS"
+		usr.verbs -= /obj/item/weapon/chaosball/verb/chaos_dunk
 		world << sound('chaosdunk.ogg')
 		usr.say("You killed my family and my friends. But there is still time for one final chaos dunk...")
 		spawn(250)
@@ -26,8 +28,8 @@
 				world << "<B>\red A MEASURED 19.7 MEGAJOULE OF NEGATIVE BBALL PROTONS HAVE BEEN DETECTED.</B>"
 				spawn(10)
 					world << "<font size=6><B> \red A CHAOS DUNK IS IMMINENT. FIND COVER. THIS IS NOT A DRILL.</B></font>"
-					spawn(230)
-						usr.visible_message("\red [usr] comes crashing down in amazing speed!")
+					spawn(220)
+						usr.visible_message("\red [usr] comes crashing down at an amazing speed!")
 						usr.invisibility = 0
 						explosion(usr.loc, 8, 5, 5, 5)
 						usr.canmove = 1 //sanity check just in case the ghost fucks up or something i dunno
