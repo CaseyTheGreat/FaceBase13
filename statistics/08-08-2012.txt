@@ -3,3 +3,8 @@ Zone | The Central Primary Hallway | 21.8303, 82.1235, 0, 0 | 293.15 | 267500
 Explosion | Primary Tool Storage | 8, 5, 5, 5
 Death | Primary Tool Storage | 0, 0, 0, 0
 Explosion | Primary Tool Storage | -1, 0, 2, 
+Zone | Space | -0.725406, -2.72891, 0, 0 | 4.99392 | 1.4675e+006
+Explosion | Primary Tool Storage | 8, 5, 5, 5
+Death | Primary Tool Storage | 0, 0, 0, 0
+Explosion | Primary Tool Storage | -1, 0, 2, 
+Explosion | The Locker Room | -1, 0, 2, 
