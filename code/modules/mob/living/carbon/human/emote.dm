@@ -406,6 +406,15 @@
 				message = "<B>[src]</B> makes a strange noise."
 				m_type = 2
 
+
+		// insert reta-   funny shit here -ds
+		if ("fart")
+			message = pick("<B>[src]</B> farts!", // you get the idea
+			"<B>[src]</B> expels intestinal gas!",
+			"<B>[src]</B> is silent, but deadly!")
+			playsound(loc, 'fart.ogg', 50, 1, -5)
+			m_type = 2
+
 		if ("sniff")
 			message = "<B>[src]</B> sniffs."
 			m_type = 2
