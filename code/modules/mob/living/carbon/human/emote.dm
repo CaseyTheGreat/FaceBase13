@@ -415,6 +415,13 @@
 			playsound(loc, 'fart.ogg', 50, 1, -5)
 			m_type = 2
 
+		if ("poo")
+			if(src.nutrition >= 350)
+				message = "<B>[src]</B> takes a graceful shit on the floor!"
+				playsound(loc, 'squishy.ogg', 50, 1, -5)
+				m_type = 2
+				new /obj/effect/decal/cleanable/poo(src.loc)
+
 		if ("sniff")
 			message = "<B>[src]</B> sniffs."
 			m_type = 2
