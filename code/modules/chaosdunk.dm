@@ -31,8 +31,7 @@
 					spawn(220)
 						usr.visible_message("\red [usr] comes crashing down at an amazing speed!")
 						usr.invisibility = 0
-						explosion(usr.loc, 8, 5, 5, 5)
+						explosion(usr.loc, 6, 7, 9, 5)
 						usr.canmove = 1 //sanity check just in case the ghost fucks up or something i dunno
 
-
-
+						//CASEY: made the explosion slightly smaller so it'll leave some damaged tiles

@@ -13,6 +13,7 @@
 	var/muted_complete	= null	//Can't talk in any way shape or form (muted + can't adminhelp or respond to admin pm-s). An admin punishment
 	var/warned			= 0
 	var/sound_adminhelp = 0 	//If set to 1 this will play a sound when adminhelps are received.
+	var/view_log  = 1
 	var/admin_invis = 0
 
 		/////////

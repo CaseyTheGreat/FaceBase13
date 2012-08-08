@@ -449,6 +449,9 @@
 					m_type = 2
 					src.nutrition -= 50
 					hasbutt = 0
+					var/obj/item/clothing/head/butt/B = new /obj/item/clothing/head/butt(src.loc)
+					B.name = src.name + "'s butt"
+					new /obj/effect/decal/cleanable/poo(src.loc)
 					new /obj/effect/gibspawner/poogib(src.loc)
 				else
 					src << "You can't do that right now!"

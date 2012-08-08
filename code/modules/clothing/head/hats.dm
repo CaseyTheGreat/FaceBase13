@@ -151,3 +151,10 @@
 	see_face = 0.0
 	armor = list(melee = 0, bullet = 0, laser = 2,energy = 2, bomb = 0, bio = 0, rad = 0)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
+
+/obj/item/clothing/head/butt
+	name = "butt"
+	desc = "A severed human butt! Maybe a surgeon can reattach it."
+	icon_state = "butt"
+	flags = FPRINT|TABLEPASS|HEADCOVERSEYES
+	item_state = "butt"
