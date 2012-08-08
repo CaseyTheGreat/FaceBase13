@@ -450,6 +450,10 @@
 					src.nutrition -= 50
 					hasbutt = 0
 					new /obj/effect/gibspawner/poogib(src.loc)
+				else
+					src << "You can't do that right now!"
+			else
+				src << "You don't have a butt!"
 
 
 		if ("sniff")
