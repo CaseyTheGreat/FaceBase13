@@ -1,0 +1,2 @@
+Zone | The Telecoms Foyer | 21.8366, 82.1472, 0, 0 | 293.15 | 42500
+Death | Space | 0, 48, 0, 0

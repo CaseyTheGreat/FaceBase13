@@ -38,6 +38,8 @@
 	var/datum/effect/effect/system/spark_spread/spark_system = new
 	var/lights = 0
 	var/lights_power = 6
+	var/movesound = 'mechstep.ogg'
+	var/turnsound = 'mechturn.ogg'
 
 	//inner atmos
 	var/use_internal_tank = 0
@@ -310,23 +312,20 @@
 
 /obj/mecha/proc/mechturn(direction)
 	dir = direction
-	if(!(istype(src, /obj/mecha/working/clowncar)))
-		playsound(src,'mechturn.ogg',40,1)
+	playsound(src,turnsound,40,1)
 	return 1
 
 /obj/mecha/proc/mechstep(direction)
 	var/result = step(src,direction)
 	if(result)
-		if(!(istype(src, /obj/mecha/working/clowncar)))
-			playsound(src,'mechstep.ogg',40,1)
+		playsound(src,movesound,40,1)
 	return result
 
 
 /obj/mecha/proc/mechsteprand()
 	var/result = step_rand(src)
 	if(result)
-		if(!(istype(src, /obj/mecha/working/clowncar)))
-			playsound(src,'mechstep.ogg',40,1)
+		playsound(src,movesound,40,1)
 	return result
 
 /obj/mecha/Bump(var/atom/obstacle)
