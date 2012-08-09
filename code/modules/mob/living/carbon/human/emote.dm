@@ -411,13 +411,16 @@
 
 		// insert reta-   funny shit here -ds
 		if ("fart")
-			message = pick("<B>[src]</B> farts!", // you get the idea
-			"<B>[src]</B> expels intestinal gas!",
-			"<B>[src]</B> is silent, but deadly!")
-			playsound(loc, 'fart.ogg', 50, 1, -5)
-			m_type = 2
+			if(hasbutt == 1)
+				message = pick("<B>[src]</B> farts!", // you get the idea
+				"<B>[src]</B> expels intestinal gas!",
+				"<B>[src]</B> is silent, but deadly!")
+				playsound(loc, 'fart.ogg', 50, 1, -5)
+				m_type = 2
+			else
+				src << "You don't have a butt!"
 
-		if ("poo")
+		if ("poo" || "shit")
 			if(hasbutt == 1)
 				if(src.nutrition>=150)
 					message = "<B>[src]</B> takes a graceful shit on the floor!"
@@ -453,7 +456,7 @@
 					B.name = src.name + "'s butt"
 					new /obj/effect/decal/cleanable/poo(src.loc)
 					new /obj/effect/gibspawner/poogib(src.loc)
-				else
+				if(nutrition <0)
 					src << "You can't do that right now!"
 			else
 				src << "You don't have a butt!"

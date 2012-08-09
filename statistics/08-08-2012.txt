@@ -8,3 +8,6 @@ Explosion | Primary Tool Storage | 8, 5, 5, 5
 Death | Primary Tool Storage | 0, 0, 0, 0
 Explosion | Primary Tool Storage | -1, 0, 2, 
 Explosion | The Locker Room | -1, 0, 2, 
+Zone | The Cargo Bay | 21.8366, 82.1472, 0, 0 | 293.15 | 17500
+Death | Space | 0, 19, 0, 0
+Death | Space | 0, 7, 0, 0

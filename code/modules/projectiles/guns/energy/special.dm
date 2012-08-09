@@ -104,3 +104,11 @@ obj/item/weapon/gun/energy/staff
 				modifystate = "floramut"
 		update_icon()
 		return
+
+/obj/item/weapon/gun/energy/bfg
+	name = "Big Fucking Gun"
+	desc = "No, it's not a 'bio-force gun'."
+	icon_state = "bfg"
+	fire_sound = 'pulse3.ogg'
+	origin_tech = "combat=5;materials=4;powerstorage=3;"
+	projectile_type = "/obj/item/projectile/energy/bfg"

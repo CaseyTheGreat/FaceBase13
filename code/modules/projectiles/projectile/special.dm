@@ -94,3 +94,16 @@
 			M.show_message("\blue The radiation beam dissipates harmlessly through your body.")
 		else
 			return 1
+
+/obj/item/projectile/energy/bfg
+	name = "bfg blast"
+	icon_state = "bfg"
+	damage = 0
+	damage_type = TOX
+	nodamage = 1
+	flag = "energy"
+
+	on_hit(var/atom/target, var/blocked = 0)
+		var/mob/M = target
+		explosion(target, -1, 0, 2)
+		M.gib()

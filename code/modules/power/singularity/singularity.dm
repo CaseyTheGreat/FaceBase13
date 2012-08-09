@@ -547,7 +547,8 @@ var/global/list/uneatable = list(
 	chaosdunk
 		name = "Chaos Sphere"
 		desc = "Your mind begins to bubble and ooze as it is bombarded by negative b-ball protons"
-		icon = 'magic_terror.dmi'
+		icon = '224x224.dmi'
+		icon_state = "basketball"
 		pixel_x = -89
 		pixel_y = -85
 		current_size = 9 //It moves/eats like a max-size singulo, aside from range. --NEO
