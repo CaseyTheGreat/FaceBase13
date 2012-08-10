@@ -96,26 +96,52 @@
 
 
 /obj/mecha/working/clowncar/relaymove(var/mob/user as mob, direction)
-	if (src.locked)
-		user << "The doors are locked!"
-		return
-	else
-		user.loc = src.loc
-		if (user.client)
-			user.client.eye = user.client.mob
-			user.client.perspective = MOB_PERSPECTIVE
+	if(!(user == src.occupant))
+		if (src.locked)
+			user << "The doors are locked!"
+			return
+	..()
 
+/obj/mecha/working/clowncar/Bump(var/atom/obs)
+	var/mob/M = obs
+	if(ismob(M))
+		if(istype(M,/mob/living/silicon/robot))
+			src.visible_message("\red [src] bumps into [M]!")
+		else
+			src.visible_message("\red [src] knocks over [M]!")
+			playsound(src, 'splat.ogg', 50, 1)
+			M.pulling = null
+			M.Stun(8)
+			M.Weaken(5)
+			M.lying = 1
+	..()
 
 /obj/mecha/working/clowncar/verb/togglelock()
-	set category = "Clown Car"
+	set category = "Vehicle Interface"
 	set name = "Toggle door locks"
+	set src = usr.loc
+	if(!src.occupant) return
+	if(usr!=src.occupant)
+		return
 	if (src.locked == 0)
 		src.locked = 1
+		for(var/mob/M in src.contents)
+			M << "The doors are now locked"
 		usr << "The doors are now locked"
 	else if (src.locked == 1)
 		src.locked = 0
+		for(var/mob/M in src.contents)
+			M << "The doors are now unlocked"
 		usr << "The doors are now unlocked"
 
+/obj/mecha/working/clowncar/verb/honk()
+	set category = "Vehicle Interface"
+	set name = "Honk horn"
+	set src = usr.loc
+	if(!src.occupant) return
+	if(usr!=src.occupant)
+		return
+	playsound(src, 'bikehorn.ogg', 100, 1)
 
 
 /obj/item/weapon/clownkeys
