@@ -686,6 +686,20 @@ datum
 				..()
 				return
 
+		poo
+			name = "poo"
+			id = "poo"
+			description = "Upon closer inspection, it's feces."
+			reagent_state = SOLID
+			nutriment_factor = 1 * REAGENTS_METABOLISM
+			color = "#633300"
+
+			on_mob_life(var/mob/living/M as mob)
+				M:nutrition += nutriment_factor
+				..()
+				return
+
+
 		sugar
 			name = "Sugar"
 			id = "sugar"

@@ -1401,6 +1401,20 @@
 		reagents.add_reagent("nutriment", 4)
 		bitesize = 3
 
+/obj/item/weapon/reagent_containers/food/snacks/poo
+	name = "poo"
+	desc = "yep, it's poo"
+	icon_state = "poo"
+	New()
+		..()
+		reagents.add_reagent("poo", 10)
+		bitesize = 2
+	throw_impact(atom/hit_atom)
+		new /obj/effect/decal/cleanable/poo(hit_atom.loc) // what, flinging poo is mandatory //deadsnipe
+		del(src)
+
+
+
 /obj/item/weapon/reagent_containers/food/snacks/twobread
 	name = "Two Bread"
 	desc = "It is very bitter and winy."

@@ -429,6 +429,7 @@
 					m_type = 2
 					src.nutrition -= 50
 					new /obj/effect/decal/cleanable/poo(src.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
 				if((src.nutrition>=100)&&(src.nutrition<150))
 					message = "<B>[src]</B> takes a shit on the floor!"
 					playsound(loc, 'squishy.ogg', 50, 1, -5)
@@ -436,6 +437,7 @@
 					m_type = 2
 					src.nutrition -= 50
 					new /obj/effect/decal/cleanable/poo(src.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
 				if((src.nutrition>=50)&&(src.nutrition<100))
 					message = "<B>[src]</B> takes a strained shit on the floor!"
 					src << "You had to really strain for this one. The next one could be <B>THE BIG ONE</B>!"
@@ -444,6 +446,7 @@
 					m_type = 2
 					src.nutrition -= 50
 					new /obj/effect/decal/cleanable/poo(src.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
 				if((src.nutrition>=0)&&(src.nutrition<50))
 					message = "<B>[src]'s</B> butt explodes!"
 					src << "<B>Your ass explodes!</B>"
