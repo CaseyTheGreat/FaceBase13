@@ -431,7 +431,7 @@
 						src.nutrition -= 300
 						playsound(loc, 'fart.ogg', 100, 1, -5)
 						playsound(loc, 'squishy.ogg', 100, 1, -5)
-						message = "<font size=4><B>[src]</B> releases a fountain of <B>shit</B> from his augmented ass!</font>"
+						message = "<font size=3><B>[src]</B> releases a fountain of <B>shit</B> from his augmented ass!</font>"
 						for(var/mob/living/carbon/human/H in T)
 							H.weakened = 4
 							H << "\red Holy shit, what the fuck was that!?"
@@ -445,7 +445,8 @@
 					m_type = 2
 					src.nutrition -= 50
 					new /obj/effect/decal/cleanable/poo(src.loc)
-					new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
+					if(prob(30))
+						new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
 				if((src.nutrition>=100)&&(src.nutrition<150))
 					message = "<B>[src]</B> takes a shit on the floor!"
 					playsound(loc, 'squishy.ogg', 50, 1, -5)
@@ -453,7 +454,8 @@
 					m_type = 2
 					src.nutrition -= 50
 					new /obj/effect/decal/cleanable/poo(src.loc)
-					new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
+					if(prob(40))
+						new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
 				if((src.nutrition>=50)&&(src.nutrition<100))
 					message = "<B>[src]</B> takes a strained shit on the floor!"
 					src << "You had to really strain for this one. The next one could be <B>THE BIG ONE</B>!"
@@ -462,7 +464,8 @@
 					m_type = 2
 					src.nutrition -= 50
 					new /obj/effect/decal/cleanable/poo(src.loc)
-					new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
+					if(prob(50))
+						new /obj/item/weapon/reagent_containers/food/snacks/poo(src.loc)
 				if((src.nutrition>=0)&&(src.nutrition<50))
 					message = "<B>[src]'s</B> butt explodes!"
 					src << "<B>Your ass explodes!</B>"

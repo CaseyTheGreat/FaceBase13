@@ -9,7 +9,7 @@
 	var/list/cargo = new
 	var/cargo_capacity = 15
 	var/max_occupants = 10
-	var/locked = 0
+	var/locked = 1
 	movesound = null
 	turnsound = null
 
@@ -99,16 +99,16 @@
 	if (src.locked)
 		user << "The doors are locked!"
 		return
-	else
-		user.loc = src.loc
-		if (user.client)
-			user.client.eye = user.client.mob
-			user.client.perspective = MOB_PERSPECTIVE
+	..()
 
 
 /obj/mecha/working/clowncar/verb/togglelock()
 	set category = "Clown Car"
 	set name = "Toggle door locks"
+	set src = usr.loc
+	if(!src.occupant) return
+	if(usr!=src.occupant)
+		return
 	if (src.locked == 0)
 		src.locked = 1
 		usr << "The doors are now locked"
