@@ -965,7 +965,7 @@
 
 /obj/mecha/verb/move_inside()
 	set category = "Object"
-	set name = "Enter Exosuit"
+	set name = "Enter Vehicle"
 	set src in oview(1)
 	if(usr.stat != 0 || ( !istajaran(usr) && !ishuman(usr) ))
 		return

@@ -105,5 +105,5 @@
 
 	on_hit(var/atom/target, var/blocked = 0)
 		var/mob/M = target
-		explosion(target, -1, 0, 2)
+		explosion(target.loc, -1, 0, 2)
 		M.gib()

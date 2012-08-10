@@ -106,9 +106,9 @@ obj/item/weapon/gun/energy/staff
 		return
 
 /obj/item/weapon/gun/energy/bfg
-	name = "Big Fucking Gun"
+	name = "BFG-9000"
 	desc = "No, it's not a 'bio-force gun'."
 	icon_state = "bfg"
-	fire_sound = 'pulse3.ogg'
+	fire_sound = 'bfgblast.ogg'
 	origin_tech = "combat=5;materials=4;powerstorage=3;"
 	projectile_type = "/obj/item/projectile/energy/bfg"

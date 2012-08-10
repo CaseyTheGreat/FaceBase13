@@ -8,21 +8,26 @@
 	wreckage = /obj/effect/decal/mecha_wreckage/clowncar
 	var/list/cargo = new
 	var/cargo_capacity = 15
-	var/max_occupants
+	var/max_occupants = 10
+	var/locked = 0
 	movesound = null
 	turnsound = null
 
 	move_inside()
 		set category = "Object"
-		set name = "Enter Exosuit"
+		set name = "Enter Vehicle"
 		set src in oview(1)
 		if(usr.stat != 0 || ( !istajaran(usr) && !ishuman(usr) ))
 			return
 		src.log_message("[usr] tries to move in.")
 		if (src.occupant)
-			usr << "You climb into the passenger seat."
-			src.contents.Add(usr)
-			return
+			if(!(src.locked))
+				usr << "You climb into the passenger seat."
+				src.contents.Add(usr)
+			else
+				src << "The doors are locked!"
+				return
+
 	/*
 		if (usr.abiotic())
 			usr << "\blue <B>Subject cannot have abiotic items on.</B>"
@@ -46,13 +51,78 @@
 
 		for (var/mob/V in viewers(src))
 			if(V.client && !(V.blinded))
-				V.show_message("\blue [usr] starts to climb into [src.name]", 1)
-
+				if(src.locked)
+					usr << "The doors are locked!"
+					return
+				else
+					V.show_message("\blue [usr] starts to climb into [src.name]", 1)
 		if(enter_after(40,usr))
 			if(!src.occupant)
 				moved_inside(usr)
 			else if(src.occupant!=usr)
-				usr << "[src.occupant] was faster. Try better next time, loser."
+				if(!(src.locked))
+					usr << "[src.occupant] was faster. Try better next time, loser. You can still ride along."
+					usr << "You climb into the passenger seat."
+					src.contents.Add(usr)
+				else
+					usr << "The doors are locked!"
+					return
 		else
-			usr << "You stop entering the exosuit."
+			usr << "You stop entering [src.name]."
 		return
+
+
+/obj/mecha/working/clowncar/moved_inside(var/mob/living/carbon/human/H as mob)
+	if(H && H.client && H in range(1))
+		H.reset_view(src)
+		/*
+		H.client.perspective = EYE_PERSPECTIVE
+		H.client.eye = src
+		*/
+		H.pulling = null
+		H.forceMove(src)
+		src.occupant = H
+		src.add_fingerprint(H)
+		src.forceMove(src.loc)
+		src.log_append_to_last("[H] moved in as driver.")
+		src.icon_state = initial(icon_state)
+		dir = dir_in
+		playsound(src, 'fart.ogg', 50, 1)
+		if(!hasInternalDamage())
+			src.occupant << sound('bikehorn.ogg',volume=50)
+		return 1
+	else
+		return 0
+
+
+/obj/mecha/working/clowncar/relaymove(var/mob/user as mob, direction)
+	if (src.locked)
+		user << "The doors are locked!"
+		return
+	else
+		user.loc = src.loc
+		if (user.client)
+			user.client.eye = user.client.mob
+			user.client.perspective = MOB_PERSPECTIVE
+
+
+/obj/mecha/working/clowncar/verb/togglelock()
+	set category = "Clown Car"
+	set name = "Toggle door locks"
+	if (src.locked == 0)
+		src.locked = 1
+		usr << "The doors are now locked"
+	else if (src.locked == 1)
+		src.locked = 0
+		usr << "The doors are now unlocked"
+
+
+
+/obj/item/weapon/clownkeys
+	name = "Clown Car keys"
+	desc = "The coveted keys to the Clown Car. Keep out of hands of captain."
+	icon = 'items.dmi'
+	icon_state = "clownkeys"
+	flags = FPRINT | TABLEPASS
+	slot_flags = SLOT_BELT
+
