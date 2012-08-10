@@ -116,7 +116,7 @@
 		src.locked = 0
 		usr << "The doors are now unlocked"
 
-/obj/mecha/working/clowncar/verb/togglelock()
+/obj/mecha/working/clowncar/verb/honk()
 	set category = "Vehicle Interface"
 	set name = "Honk horn"
 	set src = usr.loc
