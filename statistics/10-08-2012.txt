@@ -1,1 +1,6 @@
 Zone | Mining station | 21.8366, 82.1472, 0, 0 | 293.15 | 12500
+Death | Space | 0, 7, 0, 0
+Zone | Space | 0.00315789, 0.00315789, 0, 0 | 2.7 | 47500
+Zone | The Armoury | 21.8366, 82.1472, 0, 0 | 293.15 | 62500
+Death | Space | 0, 24, 0, 0
+Death | Space | 0, 33, 0, 0
