@@ -500,6 +500,11 @@
 
 	var/selfdamage = 0
 
+	attack(M as mob)
+		if(M == usr)
+			bluntsuicide(src)
+
+
 /obj/item/weapon/storage/toolbox/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 	if(contents.len && istype(user.loc, /turf) && prob(10))
 		// have a chance to swing open

@@ -716,7 +716,7 @@
 						var/name = pick(M:organs)
 						var/datum/organ/external/temp = M:organs[name]
 						if (istype(temp, /datum/organ/external))
-							temp.take_damage(4, 0)
+							temp.take_damage(1, 0)
 							if(temp.name == "head")
 								M.paralysis += 4
 								M << "\red Your head smashes into a rogue piece of metal!"
@@ -726,7 +726,7 @@
 							M:UpdateDamageIcon()
 							//M:UpdateDamage() //doesnt fucking exist if you arent a blob
 					else
-						M.bruteloss += 4
+						M.bruteloss++
 					if(prob(2))
 						M << "\red Your elbow doesn't bend that way, dammit!"
 					//else

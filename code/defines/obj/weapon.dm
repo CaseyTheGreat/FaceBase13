@@ -1267,6 +1267,10 @@ eternal248: Found broken and buggy Z-levels 7-12, ended up leading to my discove
 	item_state = "shard-glass"
 	g_amt = 3750
 
+	attack(var/mob/living/carbon/human/H)
+		if(H == usr)
+			sharpsuicide(src)
+
 /obj/item/weapon/SWF_uplink
 	name = "station-bounced radio"
 	desc = "used to comunicate it appears."

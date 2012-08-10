@@ -1410,8 +1410,13 @@
 		reagents.add_reagent("poo", 10)
 		bitesize = 2
 	throw_impact(atom/hit_atom)
-		new /obj/effect/decal/cleanable/poo(hit_atom.loc) // what, flinging poo is mandatory //deadsnipe
+		if(istype(hit_atom, /turf/simulated/wall) || istype(hit_atom, /obj/structure/window))
+			step_to(src,usr) // for some reason it made poop inside walls without this
+		new /obj/effect/decal/cleanable/poo(hit_atom) // what, flinging poo is mandatory //deadsnipe
 		del(src)
+		playsound(loc, 'squishy.ogg', 50, 1, -5)
+
+
 	/obj/item/weapon/reagent_containers/food/snacks/poo/attackby(obj/item/weapon/DS as obj, mob/user as mob)
 		if(istype(DS,/obj/item/weapon/reagent_containers/glass/beaker) || istype(DS,/obj/item/weapon/reagent_containers/glass/large))
 			usr << "\blue You scoop up the shit into the beaker."

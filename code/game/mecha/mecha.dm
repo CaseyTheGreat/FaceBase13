@@ -900,7 +900,7 @@
 
 /obj/mecha/verb/connect_to_port()
 	set name = "Connect to port"
-	set category = "Vehicle Interface"
+	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(!src.occupant) return
@@ -922,7 +922,7 @@
 
 /obj/mecha/verb/disconnect_from_port()
 	set name = "Disconnect from port"
-	set category = "Vehicle Interface"
+	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(!src.occupant) return
@@ -937,7 +937,7 @@
 
 /obj/mecha/verb/toggle_lights()
 	set name = "Toggle Lights"
-	set category = "Vehicle Interface"
+	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(usr!=src.occupant)
@@ -953,7 +953,7 @@
 
 /obj/mecha/verb/toggle_internal_tank()
 	set name = "Toggle internal airtank usage."
-	set category = "Vehicle Interface"
+	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(usr!=src.occupant)
@@ -1093,7 +1093,7 @@
 
 /obj/mecha/verb/view_stats()
 	set name = "View Stats"
-	set category = "Vehicle Interface"
+	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(usr!=src.occupant)
@@ -1113,7 +1113,7 @@
 
 /obj/mecha/verb/eject()
 	set name = "Eject"
-	set category = "Vehicle Interface"
+	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(usr!=src.occupant)
