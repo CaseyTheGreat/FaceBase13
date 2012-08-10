@@ -20,6 +20,9 @@
 
 
 /obj/item/weapon/implanter/attack(mob/M as mob, mob/user as mob)
+	if (ticker.mode.name == "sandbox") // i'm fed up with this shit --ds
+		usr << "\red <B>The mode is Sandbox, not HURR IMPLANT MYSELF WITH NANO AUGMENTATIONS mode.</B>"
+		return
 	if (!istype(M, /mob/living/carbon))
 		return
 	if (user && imp)

@@ -156,5 +156,12 @@
 	name = "butt"
 	desc = "A severed human butt! Maybe a surgeon can reattach it."
 	icon_state = "butt"
-	flags = FPRINT|TABLEPASS|HEADCOVERSEYES
+	flags = FPRINT|TABLEPASS
 	item_state = "butt"
+
+/obj/item/clothing/head/butt/nano
+	name = "metal butt"
+	desc = "A severed metal butt! A surgeon can probably attach this."
+	icon_state = "nanobutt"
+	flags = FPRINT|TABLEPASS
+	item_state = "nanobutt"

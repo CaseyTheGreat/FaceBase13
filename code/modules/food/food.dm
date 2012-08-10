@@ -1412,6 +1412,11 @@
 	throw_impact(atom/hit_atom)
 		new /obj/effect/decal/cleanable/poo(hit_atom.loc) // what, flinging poo is mandatory //deadsnipe
 		del(src)
+	/obj/item/weapon/reagent_containers/food/snacks/poo/attackby(obj/item/weapon/DS as obj, mob/user as mob)
+		if(istype(DS,/obj/item/weapon/reagent_containers/glass/beaker) || istype(DS,/obj/item/weapon/reagent_containers/glass/large))
+			usr << "\blue You scoop up the shit into the beaker."
+			DS.reagents.add_reagent("poo", 5)
+
 
 
 

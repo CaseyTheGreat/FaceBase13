@@ -1086,6 +1086,20 @@ CIRCULAR SAW
 
 //obj/item/weapon/surgicaldrill
 
+/obj/item/clothing/head/butt/nano/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+	if(user.zone_sel.selecting == "groin")
+		if(!M:hasbutt && !M:hasnanobutt)
+			//if(starsarealignedandjupiterisinthecorrectposition)
+			for(var/mob/living/carbon/C in viewers(M))
+				C << "\blue [usr] begins to attach the nano butt to [M]'s behind!"
+			if(do_mob(user, M, 100))
+				for(var/mob/living/carbon/C in viewers(M))
+					C << "\blue [usr] attaches the nano butt to [M]!"
+				M:hasnanobutt = 1
+				del(src)
+
+
+
 
 ///////////
 //SCALPEL//
@@ -1104,6 +1118,7 @@ CIRCULAR SAW
 		return ..()
 
 	src.add_fingerprint(user)
+
 
 	if(((user.zone_sel.selecting == "l_arm") || (user.zone_sel.selecting == "r_arm") || (user.zone_sel.selecting == "l_leg") || (user.zone_sel.selecting == "r_leg")) & (istype(M, /mob/living/carbon/human)))
 		var/mob/living/carbon/human/H = M

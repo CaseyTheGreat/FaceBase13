@@ -420,8 +420,24 @@
 			else
 				src << "You don't have a butt!"
 
+		if ("shitcannon" || "finalform" || "finalesfunkeln")
+			var/turf/T = src.loc
+			if(hasnanobutt)
+				if(src.nutrition >=300)
+					for(var/i=0, i<6, i++)
+						T = get_step(T, turn(src.dir, 180))
+						new /obj/effect/decal/cleanable/poo(T)
+						new /obj/item/weapon/reagent_containers/food/snacks/poo(T)
+						src.nutrition -= 300
+						playsound(loc, 'fart.ogg', 100, 1, -5)
+						playsound(loc, 'squishy.ogg', 100, 1, -5)
+						message = "<font size=4><B>[src]</B> releases a fountain of <B>shit</B> from his augmented ass!</font>"
+						for(var/mob/living/carbon/human/H in T)
+							H.weakened = 4
+							H << "\red Holy shit, what the fuck was that!?"
+
 		if ("poo" || "shit")
-			if(hasbutt == 1)
+			if(hasbutt || hasnanobutt)
 				if(src.nutrition>=150)
 					message = "<B>[src]</B> takes a graceful shit on the floor!"
 					playsound(loc, 'squishy.ogg', 50, 1, -5)

@@ -18,10 +18,11 @@
 		set desc = "NEGATIVE B BALL PROTONS"
 		usr.verbs -= /obj/item/weapon/chaosball/verb/chaos_dunk
 		world << sound('chaosdunk.ogg')
-		usr.say("You killed my family and my friends. But there is still time for one final chaos dunk...")
+		usr.say("You took everything i had. You took my wife. You took my game. Hell, you even killed my friends... But that's where it stops, there's only enough time for one last chaos dunk...")
 		spawn(250)
 			usr:invisibility = 105
 			usr:canmove = 0
+			usr:stunned = 20
 			usr.visible_message("\red [usr] dives up into the air!")
 			world << "<B>\red !NEO CASEY STATION 13 CHAOS DUNK ADVISORY WARNING!</B>"
 			spawn(50)
