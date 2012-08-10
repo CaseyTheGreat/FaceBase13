@@ -96,9 +96,10 @@
 
 
 /obj/mecha/working/clowncar/relaymove(var/mob/user as mob, direction)
-	if (src.locked)
-		user << "The doors are locked!"
-		return
+	if(!(mob == src.occupant))
+		if (src.locked)
+			user << "The doors are locked!"
+			return
 	..()
 
 
@@ -111,9 +112,13 @@
 		return
 	if (src.locked == 0)
 		src.locked = 1
+		for(var/mob/M in src.contents)
+			M << "The doors are now locked"
 		usr << "The doors are now locked"
 	else if (src.locked == 1)
 		src.locked = 0
+		for(var/mob/M in src.contents)
+			M << "The doors are now unlocked"
 		usr << "The doors are now unlocked"
 
 /obj/mecha/working/clowncar/verb/honk()

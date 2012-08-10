@@ -1093,7 +1093,7 @@
 
 /obj/mecha/verb/view_stats()
 	set name = "View Stats"
-	set category = "Exosuit Interface"
+	set category = "Vehicle Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(usr!=src.occupant)
@@ -1113,7 +1113,7 @@
 
 /obj/mecha/verb/eject()
 	set name = "Eject"
-	set category = "Exosuit Interface"
+	set category = "Vehicle Interface"
 	set src = usr.loc
 	set popup_menu = 0
 	if(usr!=src.occupant)
