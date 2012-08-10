@@ -81,3 +81,9 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		return
 	sleep(50)
 	command_alert("What the fuck was that?!", "General Alert")
+
+/obj/effect/immovablerod/brody
+	icon_state = "brody"
+	name = "immovable brody"
+	desc = "someone demote deadsnipe"
+	..()

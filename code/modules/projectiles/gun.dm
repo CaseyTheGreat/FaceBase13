@@ -65,7 +65,7 @@
 	attack(mob/living/M as mob, mob/living/user as mob, def_zone)
 		if (M == user && user.zone_sel.selecting == "mouth" && load_into_chamber() && !mouthshoot) //Suicide handling.
 			mouthshoot = 1
-			M.visible_message("\red \The [user] sticks their gun in their mouth, ready to pull the trigger...")
+			M.visible_message("\red \The [user] sticks their gun to their temple, ready to pull the trigger...")
 			if(!do_after(user, 40))
 				M.visible_message("\blue \The [user] decided life was worth living")
 				mouthshoot = 0
@@ -73,7 +73,7 @@
 			if(istype(src.in_chamber, /obj/item/projectile/bullet) && !istype(src.in_chamber, /obj/item/projectile/bullet/stunshot) && !istype(src.in_chamber, /obj/item/ammo_casing/shotgun/beanbag))
 				M.apply_damage(75, BRUTE, "head", used_weapon = "Suicide attempt with a projectile weapon.")
 				M.apply_damage(85, BRUTE, "chest")
-				M.visible_message("\red \The [user] pulls the trigger.")
+				M.visible_message("\red \The [user] salutes and pulls the trigger.")
 			else if(istype(src.in_chamber, /obj/item/projectile/bullet/stunshot) || istype(src.in_chamber, /obj/item/projectile/energy/electrode))
 				M.apply_damage(10, BURN, "head", used_weapon = "Suicide attempt with a stun round.")
 				M.visible_message("\red \The [user] pulls the trigger, but luckily it was a stun round.")

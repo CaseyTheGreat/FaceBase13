@@ -73,6 +73,25 @@
 	//to find it.
 	blinded = null
 
+/*	switch(onfire) // i need icon stages for fire ASAP if you want this.--deadsnipe
+		if(onfire>0)
+			fireloss++
+			onfire--
+			//src.overlays += "fire1"
+		if(onfire>5)
+			fireloss+=2
+			onfire--
+			//src.overlays += "fire1"
+		if(onfire>10)
+			fireloss+=3 // TAKE NOTE THAT THIS IS THE LIFE PROC, THIS SHIT GETS CALLED A LOT. But if you reach onfire>10, you're so fucked that it's not even funny.
+			onfire--
+			//src.overlays += "fire1"
+		//if(onfire<0.1)
+			//src.overlays -= "fire1" // ssssanity
+			*/
+
+
+
 	//Update Mind
 	update_mind()
 
