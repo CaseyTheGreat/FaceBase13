@@ -9,7 +9,7 @@
 	var/list/cargo = new
 	var/cargo_capacity = 15
 	var/max_occupants = 10
-	var/locked = 1
+	var/locked = 0
 	movesound = null
 	turnsound = null
 
@@ -103,7 +103,7 @@
 
 
 /obj/mecha/working/clowncar/verb/togglelock()
-	set category = "Clown Car"
+	set category = "Vehicle Interface"
 	set name = "Toggle door locks"
 	set src = usr.loc
 	if(!src.occupant) return
@@ -116,6 +116,14 @@
 		src.locked = 0
 		usr << "The doors are now unlocked"
 
+/obj/mecha/working/clowncar/verb/togglelock()
+	set category = "Vehicle Interface"
+	set name = "Honk horn"
+	set src = usr.loc
+	if(!src.occupant) return
+	if(usr!=src.occupant)
+		return
+	playsound(src, 'bikehorn.ogg', 100, 1)
 
 
 /obj/item/weapon/clownkeys
