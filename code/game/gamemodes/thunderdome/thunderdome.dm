@@ -1,41 +1,67 @@
-/*
 /datum/game_mode/thunderdome
 	name = "thunderdome"
 	config_tag = "thunderdome"
-	votable = 0
+	votable = 1
 	uplink_welcome = "Syndicate Uplink Console:"
 	uplink_uses = 10
+	var/fightsize = 5
 	var/redteam
 	var/greenteam
 	var/teamcap
 
 /datum/game_mode/thunderdome/announce()
-	world << "<B>The current game mode is - \red THUNDERDOME!</B>"
-	world << "<B>\red NO CAPTAINS, NO CLOWNS. ONLY MEN.</B>"
+	world << "<font size = 3><B>The current game mode is - \red THUNDERDOME!</B></font>"
+	world << "<font size = 3><B>\red NO CAPTAINS, NO CLOWNS. ONLY MEN.</B></font>"
 
 /datum/game_mode/thunderdome/pre_setup()
 	for(var/mob/M in world)
-		//find out how many people are going to be on each team
+		//find out how many people are going to be on each team excluding admins
 		if(M.client)
-			teamcap++
+			if(!(M.admin))
+				teamcap++
 
 	return 1
 
+//if you're an admin, you go to the admin box. the teams are then filled based on how many people are in the game
+//up to the maximum fight size, and the runoff is sent to the observation room.s
 /datum/game_mode/thunderdome/post_setup()
 	for(var/mob/M in world)
 		if(M.client)
+			if(M.admin)
+				M.loc = pick(tdomeadmin)
 			if(redteam<=(teamcap/2))
-				M.loc = null
-				M.equip_if_possible(new /obj/item/clothing/suit/armor/tdome/red(M), M.slot_w_uniform)
-				M.equip_if_possible(new /obj/item/clothing/head/helmet/thunderdome(M), M.slot_head)
-				redteam++
+				if(redteam<=fightsize)
+					M.loc = pick(tdome1)
+					strip_mob(M)
+					redteam++
+				else
+					M.loc = pick(tdomeobserve)
 			else
-				M.loc = null
-				M.equip_if_possible(new /obj/item/clothing/suit/armor/tdome/green(M), M.slot_w_uniform)
-				M.equip_if_possible(new /obj/item/clothing/head/helmet/thunderdome(M), M.slot_head)
-				greenteam++
+				if(greenteam<=fightsize)
+					M.loc = pick(tdome2)
+					strip_mob(M)
+					greenteam++
+				else
+					M.loc = pick(tdomeobserve)
 	return 1
 
 /datum/game_mode/thunderdome/check_finished()
 	return 0
-*/
+
+/////////////////////////////////////////////
+// THUNDERDOME HELPER PROCS
+/////////////////////////////////////////////
+
+
+/datum/game_mode/thunderdome/proc/strip_mob(var/mob/M as mob)
+	for(var/obj/item/W in M)
+		if(istype(W, /datum/organ/external))
+			continue
+		M.u_equip(W)
+		if (M.client)
+			M.client.screen -= W
+		if (W)
+			W.loc = M.loc
+			W.dropped(M)
+			W.layer = initial(W.layer)
+			del(W)

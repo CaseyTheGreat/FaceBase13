@@ -68,9 +68,10 @@
 		user << "\red This item is not suitable for \the [src]!"
 		return
 	if(istype(G.affecting, /mob/living/carbon/human))
-		if(!emagged)
+	/*	if(!emagged)
 			user << "\red \The [src] buzzes and spits [G.affecting] back out."
 			return
+	*/
 		if(G.affecting.abiotic2(1))
 			user << "\red Subject may not have abiotic items on."
 			return

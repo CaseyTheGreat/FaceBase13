@@ -22,8 +22,11 @@
 		src.log_message("[usr] tries to move in.")
 		if (src.occupant)
 			if(!(src.locked))
-				usr << "You climb into the passenger seat."
-				src.contents.Add(usr)
+				if(usr.client)
+					usr.client.perspective = EYE_PERSPECTIVE
+					usr.client.eye = src
+					usr << "You climb into the passenger seat."
+					usr.loc = src
 			else
 				src << "The doors are locked!"
 				return
@@ -61,9 +64,12 @@
 				moved_inside(usr)
 			else if(src.occupant!=usr)
 				if(!(src.locked))
-					usr << "[src.occupant] was faster. Try better next time, loser. You can still ride along."
-					usr << "You climb into the passenger seat."
-					src.contents.Add(usr)
+					if(usr.client)
+						usr.client.perspective = EYE_PERSPECTIVE
+						usr.client.eye = src
+						usr.loc = src.loc
+						usr << "You climb into the passenger seat."
+						usr << "[src.occupant] was faster. Try better next time, loser. You can still ride along."
 				else
 					usr << "The doors are locked!"
 					return
@@ -100,6 +106,8 @@
 		if (src.locked)
 			user << "The doors are locked!"
 			return
+		user.client.perspective = MOB_PERSPECTIVE
+		user.client.eye = user.client.mob
 	..()
 
 /obj/mecha/working/clowncar/Bump(var/atom/obs)
