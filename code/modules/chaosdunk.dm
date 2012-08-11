@@ -1,3 +1,15 @@
+/obj/item/weapon/basketball/ // http://www.youtube.com/watch?v=c4ImhVczZ_g
+	name = "basketball"
+	desc = "As used by Charles Barkley."
+	icon = 'items.dmi'
+	icon_state = "basketball"
+	flags = FPRINT | TABLEPASS
+	slot_flags = SLOT_BELT
+	force = 10
+	throwforce = 15
+	w_class = 2.0
+
+
 /obj/item/weapon/chaosball/ // http://www.youtube.com/watch?v=c4ImhVczZ_g
 	name = "basketball"
 	desc = "As used by Charles Barkley."
@@ -9,14 +21,16 @@
 	throwforce = 15
 	w_class = 2.0
 	m_amt = 5000
-	var/dunking = 0
-
 
 	verb/chaos_dunk()
 		set src in usr
 		set name = "CHAAOOOS DUUUUNNNK"
 		set desc = "NEGATIVE B BALL PROTONS"
-		usr.verbs -= /obj/item/weapon/chaosball/verb/chaos_dunk
+		if (ticker.mode.name == "sandbox" && !usr.client.holder)
+			usr << "\red NO DUNKING IN THE SANDBOX, FAGGOT"
+			return
+		del(src)
+		new /obj/item/weapon/basketball(usr.loc)
 		world << sound('chaosdunk.ogg')
 		usr.say("You took everything i had. You took my wife. You took my game. Hell, you even killed my friends... But that's where it stops, there's only enough time for one last chaos dunk...")
 		spawn(250)
@@ -54,6 +68,9 @@
 		set src in usr
 		set name = "ULTRA CHAAOOOS DUUUUNNNK"
 		set desc = "NEGATIVE B BALL PROTONS"
+		if (ticker.mode.name == "sandbox" && !usr.client.holder)
+			usr << "\red NO DUNKING IN THE SANDBOX, FAGGOT"
+			return
 		usr.verbs -= /obj/item/weapon/chaosball/charged/verb/chaos_dunk_charged
 		world << sound('chaosdunk.ogg')
 		usr.say("You killed my family and my friends. But there is still time for one final chaos dunk...")

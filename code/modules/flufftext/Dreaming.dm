@@ -1,7 +1,7 @@
 mob/living/carbon/proc/dream()
 	dreaming = 1
 	var/list/dreams = list(
-		"an ID card","a bottle","a familiar face","a crewmember","a toolbox","a security officer","the captain",
+		"a ban bypasser","a coder","a host","a shitlorde","atmosia","toolboxia","the captain",
 		"voices from all around","deep space","a doctor","the engine","a traitor","an ally","darkness",
 		"light","a scientist","a monkey","a catastrophe","a loved one","a gun","warmth","freezing","the sun",
 		"a hat","the Luna","a ruined station","a planet","plasma","air","the medical bay","the bridge","blinking lights",
