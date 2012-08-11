@@ -17,7 +17,7 @@
 	for(var/mob/M in world)
 		//find out how many people are going to be on each team excluding admins
 		if(M.client)
-			if(!(M.admin))
+			if(!(M.client.holder))
 				teamcap++
 
 	return 1
@@ -27,7 +27,7 @@
 /datum/game_mode/thunderdome/post_setup()
 	for(var/mob/M in world)
 		if(M.client)
-			if(M.admin)
+			if(M.client.holder)
 				M.loc = pick(tdomeadmin)
 			if(redteam<=(teamcap/2))
 				if(redteam<=fightsize)
